@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+##its in ~/.local/bin
+
+1. swww img "$(cat ~/.cache/wal/wal)"
+2. pywalfox update 
+
+while [ ! -f ~/.cache/wal/krita.colors ]; do
+	sleep 0.1
+done
+
+cp ~/.cache/wal/krita.colors ~/.local/share/krita/color-schemes/
+
+
+3. ~/.local/bin/update-greeter-bg
