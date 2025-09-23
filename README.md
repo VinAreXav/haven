@@ -14,3 +14,4 @@ Categories=Utility;
 4. ~/desktop/scripts/pywal16
 5. ~/.config/wal/templates/krita.colors
 6. /usr/lib/python3.13/site-packages/pywal/templates/colors-fuzzel.ini
+7. pywalfox 16 10 8 15 177 9 14 (palette)
