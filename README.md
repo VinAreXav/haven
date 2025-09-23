@@ -13,3 +13,4 @@ Categories=Utility;
 3. update-desktop-database ~/usr/share/applications
 4. ~/desktop/scripts/pywal16
 5. ~/.config/wal/templates/krita.colors
+6. /usr/lib/python3.13/site-packages/pywal/templates/colors-fuzzel.ini
