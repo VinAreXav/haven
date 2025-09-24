@@ -1,5 +1,5 @@
 1. ~/desktop/scripts/walmenu.sh, make it executable chmod +x ~/Desktop/scripts/walmenu.sh
-2. create ~/usr/share/applications/walmenu.desktop
+2. create /usr/share/applications/walmenu.desktop
 
      [Desktop Entry]    
 Name=walmenu
@@ -10,7 +10,7 @@ Terminal=false
 Type=Application
 Categories=Utility;
 
-3. update-desktop-database ~/usr/share/applications
+3. update-desktop-database /usr/share/applications
 4. ~/desktop/scripts/pywal16
 5. ~/.config/wal/templates/krita.colors
 6. /usr/lib/python3.13/site-packages/pywal/templates/colors-fuzzel.ini
