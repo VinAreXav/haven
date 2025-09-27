@@ -2,7 +2,7 @@
 
 ##its in ~/.local/bin
 
-1. swww img "$(cat ~/.cache/wal/wal)"
+1. swaybg -m fill -i "$(cat ~/.cache/wal/wal)"
 2. pywalfox update 
 
 while [ ! -f ~/.cache/wal/krita.colors ]; do
