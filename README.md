@@ -11,3 +11,4 @@
 2. ~/.config/kitty/kitty.conf
 3. /etc/sddm.conf
 4. ~/.config/fuzzel/fuzzel.ini
+xdg-settings set default-web-browser org.qutebrowser.qutebrowser.desktop
