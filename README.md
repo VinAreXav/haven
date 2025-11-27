@@ -17,5 +17,5 @@ Categories=Utility;
 pywalfox install --browser librewolf
 pywalfox update
 16 10 8 15 177 9 14 (dark theme)
-10 12 14 16 0 8 11 (light theme)
+10 12 13 16 0 8 11 (light theme)
    
