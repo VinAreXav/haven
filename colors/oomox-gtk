@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+rm -rf ~/.themes/oomox-wal/
+rm -rf ~/.icons/oomox-wal
+
+oomox-cli ~/.cache/wal/colors-oomox -o oomox-wal -t ~/.themes/
+~/gitgot/oomox/plugins/icons_numix/change_color.sh ~/.cache/wal/colors-oomox -d ~/.icons/oomox-wal
+killall nemo
+

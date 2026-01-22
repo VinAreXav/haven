@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# wallpaper folder
+
+############## Main ################
+SCRIPT=/home/xavier/Desktop/meow/colors/pywal16
+GTK=/home/xavier/Desktop/meow/colors/oomox-gtk
+
+############## SDDM ################
+SDDM=/home/xavier/Desktop/conesque/sddm/wal.jpg
+CACHE_SDDM=/home/xavier/Desktop/meow/colors/qml-sddm.py
+WAL_SDDM=/home/xavier/Desktop/meow/colors/update-background
+
+# Set the delimiter based on nsxiv configuration
+[ "$NSXIV_USING_NULL" = 1 ] && DELIM='\0' || DELIM='\n'
+
+while read file
+do
+	case "$1" in
+		"w") wal -i $file -o $GTK
+				;;
+		
+		"e") cp $file $SDDM
+		python3 $CACHE_SDDM
+		sudo $WAL_SDDM
+				;;
+esac
+done

@@ -1,0 +1,6 @@
+xavier ALL=(ALL) NOPASSWD: /home/xavier/.local/bin/update-background
+xavier ALL=(ALL) NOPASSWD: /home/xavier/Desktop/haven/pywal16
+xavier ALL=(ALL) NOPASSWD: /home/xavier/Desktop/haven/walmenu.sh
+xavier ALL=(ALL) NOPASSWD: /home/xavier/Desktop/meow/colors/update-background
+xavier ALL=(ALL) NOPASSWD: /home/xavier/.config/nsxiv/exec/key-handler
+

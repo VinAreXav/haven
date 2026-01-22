@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+cp /home/xavier/Desktop/conesque/sddm/wal.jpg /usr/share/sddm/themes/simple-sddm/Backgrounds/wal.png
+
+cp /home/xavier/.cache/wal/sddm/Colors.qml /usr/share/sddm/themes/simple-sddm/Colors.qml
