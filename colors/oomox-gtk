@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-rm -rf ~/.themes/oomox-wal/
-rm -rf ~/.icons/oomox-wal
+rm -rf ~/.themes/
+pkill nemo
+THEME_DIR="/lien/Desktop/meow/colors/theme_oomox/"
+THEME="/lien/Desktop/meow/colors/theme_oomox/gtk-theme/change_color.sh"
 
-oomox-cli ~/.cache/wal/colors-oomox -o oomox-wal -t ~/.themes/
-~/gitgot/oomox/plugins/icons_numix/change_color.sh ~/.cache/wal/colors-oomox -d ~/.icons/oomox-wal
-killall nemo
+nix develop "$THEME_DIR" -c "$THEME" ~/.cache/wal/colors-oomox 
 
+/lien/Desktop/meow/colors/icons_numix/change_color.sh ~/.cache/wal/colors-oomox
+nemo 

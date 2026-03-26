@@ -1,7 +1,7 @@
 NAME=wal
-BG={color7.strip}
+BG={color10.strip}
 FG={color0.strip}
-MENU_BG={color4.strip}
+MENU_BG={color5.strip}
 MENU_FG={color0.strip}
 SEL_BG={color1.strip}
 SEL_FG={color0.strip}

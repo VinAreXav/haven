@@ -4,6 +4,7 @@
 ############## Main ################
 SCRIPT=/home/xavier/Desktop/meow/colors/pywal16
 GTK=/home/xavier/Desktop/meow/colors/oomox-gtk
+WORKSPACES=/home/xavier/Desktop/meow/qof/wallpaper-per-workspace
 
 ############## SDDM ################
 SDDM=/home/xavier/Desktop/conesque/sddm/wal.jpg
@@ -16,9 +17,20 @@ WAL_SDDM=/home/xavier/Desktop/meow/colors/update-background
 while read file
 do
 	case "$1" in
-		"w") wal -i $file -o $GTK
+#system
+		"1") cp $file ~/Desktop/conesque/workspaces/1
+		hyprctl hyprpaper wallpaper 'eDP-1, /lien/Desktop/conesque/workspaces/1'
+		wal -l -n -i $file -o $GTK
 				;;
-		
+#art
+		"2") cp $file ~/Desktop/conesque/workspaces/2
+				;;
+#chill
+		"3") cp $file ~/Desktop/conesque/workspaces/3
+				;;
+#clutter
+		"4") cp $file ~/Desktop/conesque/workspaces/4
+				;;
 		"e") cp $file $SDDM
 		python3 $CACHE_SDDM
 		sudo $WAL_SDDM
