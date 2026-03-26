@@ -1,0 +1,103 @@
+/*
+ * ROFI color theme
+ *
+ * Based on Base16 Material Color Scheme (https://github.com/ntpeters/base16-materialtheme-scheme)
+ *
+ * Modified by: Dave Davenport
+ * User: Tomaszal
+ * Copyright: Tomas Zaluckij
+ */
+@import "~/.cache/wal/colors-rofi-light"
+
+window {
+	transparency: "real";
+	background-color: @back; 
+    width: 20% ;
+    height: 40% ;
+}
+
+mainbox {
+	children: [inputbar, message, mode-switcher, listview];
+	spacing: 10px;
+	padding: 10px 0;
+}
+
+inputbar {
+	padding: 0 20px;
+	children: [textbox-prompt-colon, entry, case-indicator];
+}
+
+textbox-prompt-colon {
+	expand: false;
+	margin: 0 0 0 0;
+	text-color: @base07;
+}
+
+entry {
+	text-color: @base06;
+}
+
+case-indicator {
+	text-color: @base0F;
+}
+
+mode-switcher, message {
+}
+
+button, textbox {
+	background-color: @base03;
+	text-color: @base00;
+	padding: 5px;
+}
+
+button selected {
+	background-color: @base02;
+}
+
+listview {
+	scrollbar: true;
+	margin: 0 10px 0 10px;
+}
+
+scrollbar {
+	background-color: @base00;
+	handle-color: @base04;
+	handle-width: 5px;
+	margin: 0 0 0 5px;
+}
+
+element {
+	padding: 5px;
+    spacing: 5px;
+	highlight: bold underline;
+	children: [element-icon, element-text];
+}
+element-text, element-icon {
+	background-color : inherit;
+	text-color	     : inherit;
+	foreground-color : inherit;
+}
+
+element normal {
+	background-color: transparent;
+}
+
+element selected {
+	background-color: @base02;
+}
+
+element alternate {
+	/*background-color: @base03;*/
+}
+
+element normal normal, element selected normal, element alternate normal {
+	text-color: @base06;
+}
+
+element normal urgent, element selected urgent, element alternate urgent {
+	text-color: @base03;
+}
+
+element normal active, element selected active, element alternate active {
+	text-color: @base0B;
+}

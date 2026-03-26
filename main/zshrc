@@ -1,0 +1,56 @@
+# -- $PATH variable --
+export PATH="$HOME/bin:/usr/bin:/usr/local/bin:~/.local/bin:$PATH"
+export OBSIDIAN_REST_API_KEY="77c4096fe1ca69f294a1353c9b91bbddddbfff3c97c0ca4d589626cd690df49d"
+fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
+autoload -U compinit && compinit
+
+# -- oh-my-zsh --
+# https://github.com/ohmyzsh
+export ZSH=$HOME/.config/oh-my-zsh/
+ZSH_THEME="robbyrussell"
+plugins=( 
+    git
+    zoxide
+    zsh-autosuggestions
+    zsh-syntax-highlighting
+    fast-syntax-highlighting
+    zsh-autocomplete
+	zsh-interactive-cd
+)
+source ~/.config/oh-my-zsh/oh-my-zsh.sh
+
+# -- general settings --
+CASE_SENSITIVE="false"
+ENABLE_CORRECTION="true"
+HYPHEN_INSENSITIVE="true"
+
+zstyle ':omz:update' mode reminder
+# zstyle ':omz:update' frequency 13
+export LANG=en_US.UTF-8
+
+export EDITOR='nvim'
+export ARCHFLAGS="-arch $(uname -m)"
+
+setopt append_history inc_append_history share_history
+setopt auto_menu menu_complete
+setopt autocd
+setopt no_case_glob no_case_match
+setopt dot_glob
+setopt extended_glob
+
+# -- pywal --
+source ~/.cache/wal/colors-tty.sh
+(cat ~/.cache/wal/sequences &)
+# -- zoxide --
+# z as alternative to cd navigating via path fragments
+# case insensitive, only last component must match the path
+# frecency algorithm (combination of frequency and recency)
+# interactive zoxide zi lists visited dirs with their score
+# rebind cd command using cd and cdi
+eval "$(zoxide init --cmd cd zsh)"
+
+ZSH_CACHE_DIR=$HOME/.cache/oh-my-zsh
+if [[ ! -d $ZSH_CACHE_DIR ]]; then
+  mkdir $ZSH_CACHE_DIR
+fi
+

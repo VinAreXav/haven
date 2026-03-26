@@ -1,6 +1,5 @@
 // ────────────── Input Configuration ──────────────
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Input
-
+prefer-no-csd   
 input {
 		disable-power-key-handling
     keyboard {
@@ -12,32 +11,338 @@ input {
     touchpad {
 		//	dwt
 		accel-speed 0.4
-        natural-scroll // Enable natural (macOS-style) scrolling
+        natural-scroll
     }
 
-focus-follows-mouse // Automatically focus windows under the mouse pointer
-    workspace-auto-back-and-forth // Enable workspace back & forth switching
+focus-follows-mouse
+workspace-auto-back-and-forth
 }
 
 // ────────────── Output Configuration ──────────────
-// You can run `niri msg outputs` to get the correct name for your displays.
-// You will have to remove "/-" and edit it before it takes effect.
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
-
-// Laptop Monitors
 output "BOE NE160WUM-NX2 Unknown" {
     mode "1920x1200@165.015"
     scale 1
     transform "normal"
-//    position x=1707 y=0
 	focus-at-startup
 }
 
+// ────────────── Startup Applications ──────────────
+    spawn-at-startup "niri" "msg" "action" "focus-workspace" "system"
+    spawn-at-startup "mako" // Mako
+	spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1" "&"
+	spawn-at-startup "xwayland-satellite"
+	spawn-at-startup "otd-daemon" "&"
+	spawn-at-startup "swww-daemon"
+    spawn-at-startup "~/Desktop/meow/colors/pywal16"
+	spawn-at-startup "brightnessctl" "set" "100%"
+    spawn-at-startup "sunsetr" "-b"
+	spawn-at-startup "niri-float-sticky"
+	spawn-at-startup "quickshell" "--config" "test-bar"
+
+
+// ────────────── Layout Settings ──────────────
+    layout {
+        gaps 5 
+		center-focused-column "on-overflow"
+		background-color "transparent"
+
+        preset-column-widths {
+            proportion 0.33333
+            proportion 0.5
+            proportion 0.66667
+        }
+		default-column-width {proportion 0.5; }
+
+        focus-ring {
+		    off
+            width 3
+            active-color "#00ac89"
+            inactive-color "#505050"
+        }
+
+        shadow {
+            softness 30
+            spread 5
+            offset x=0 y=5
+            color "#0007"
+        }
+
+        struts {
+		left -10
+        right -10
+        top 5
+        bottom 5
+		}
+    }
+
+// ────────────── Animation Settings ──────────────
+    animations {
+        workspace-switch {
+            spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+        }
+        window-open {
+            duration-ms 50
+            curve "ease-out-quad"
+        }
+        window-close {
+            duration-ms 50
+            curve "ease-out-cubic"
+        }
+        horizontal-view-movement {
+            spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
+        }
+        window-movement {
+            spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
+        }
+        window-resize {
+            spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
+        }
+        config-notification-open-close {
+            spring damping-ratio=0.6 stiffness=1200 epsilon=0.001
+        }
+        screenshot-ui-open {
+            duration-ms 50
+            curve "ease-out-quad"
+        }
+        overview-open-close {
+            spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
+        }
+    }
+
+// ────────────── Window Rules ──────────────
+		window-rule {
+				geometry-corner-radius 10
+				clip-to-geometry true	
+				opacity 0.97
+		}
+		window-rule {
+				match app-id=r#"Nsxiv"# 
+				open-floating true
+				default-column-width { proportion 0.25; }
+				default-window-height { fixed 500; }
+				opacity 1.0
+		}
+		layer-rule {
+				match namespace="^swww-daemon$"
+				place-within-backdrop true
+		}
+
+workspace "system"
+		window-rule {
+				match app-id=r#"librewolf"#
+				open-on-workspace "system"
+				default-column-width { proportion 1.0; }
+				opacity 0.98
+		}
+				
+		window-rule {
+				match title="Picture-in-Picture"
+				open-floating true
+				open-focused false
+				default-column-width { fixed 378; }
+				default-window-height { fixed 234; }
+				default-floating-position x=50 y=100 relative-to="right"
+				opacity 1.0
+		}
+
+		window-rule {
+				match app-id=r#"kitty"# 
+				open-floating true
+				default-column-display "tabbed"
+				default-column-width { proportion 0.45; }
+				default-window-height { proportion 0.55; }
+				default-floating-position x=90 y=80 relative-to="right"
+		}
+		window-rule {
+				match app-id=r#"nemo"# 
+				open-floating true
+				default-column-width { fixed 770; }
+				default-window-height { fixed 565; }
+				default-floating-position x=80 y=230 relative-to="left"
+				opacity 0.95
+		}
+
+workspace "art" {
+		layout {
+        gaps 3   
+  		center-focused-column "never" 		
+		background-color "transparent"
+
+        preset-column-widths {
+            proportion 0.33333
+            proportion 0.5
+            proportion 0.66667
+        }
+		default-column-width {proportion 0.5; }
+
+        focus-ring {
+		    off
+            width 3
+            active-color "#00ac89"
+            inactive-color "#505050"
+        }
+        shadow {
+            softness 30
+            spread 5
+            offset x=0 y=5
+            color "#0007"
+        }
+        struts {}
+    }
+}
+
+		window-rule {
+				match app-id=r#"krita"#
+//				open-on-workspace "art"
+				default-column-width { proportion 1.0; }
+				opacity 1.0
+		}
+		window-rule {
+				match app-id=r#"PureRef"# 
+				open-floating true
+//				open-on-workspace "art"
+				default-column-width { proportion 0.25; }
+				default-window-height { fixed 500; }
+		}
+		window-rule {
+				match app-id=r#"clipstudiopaint.exe"#
+				open-fullscreen true
+				open-on-workspace "art"
+				default-column-width { proportion 1.0; }
+				default-window-height { proportion 1.0; }
+				opacity 1.0
+		}
+		window-rule {
+				match app-id=r#"clipstudio.exe"# 
+				open-on-workspace "art"
+				default-column-width { proportion 0.5; }
+				default-window-height { proportion 1.0; }
+				opacity 1.0
+		}
+
+
+workspace "chill" {
+			layout {
+        gaps 3 
+		center-focused-column "always"
+		background-color "transparent"
+
+        preset-column-widths {
+            proportion 0.33333
+            proportion 0.5
+            proportion 0.66667
+        }
+		default-column-width {proportion 0.5; }
+
+        focus-ring {
+		    off
+            width 3
+            active-color "#00ac89"
+            inactive-color "#505050"
+        }
+
+        shadow {
+            softness 30
+            spread 5
+            offset x=0 y=5
+            color "#0007"
+        }
+
+        struts {}
+    }		
+}
+
+		window-rule {
+				match app-id=r#"FreeTube"# 
+				open-floating true
+//				open-on-workspace "chill"
+				default-column-width { proportion 0.30; }
+				default-window-height { fixed 532; }
+				default-floating-position x=50 y=50 relative-to="top-right"
+		}
+		window-rule {
+				match app-id=r#"obsidian"# 
+				open-floating true
+				open-focused true
+//				open-on-workspace "chill"
+				default-column-width { proportion 0.4; }
+				default-window-height { proportion 0.7; }
+				default-floating-position x=50 y=10 relative-to="right"
+		}
+
+// games
+		window-rule {
+				match app-id=r#"genshinimpact.exe"#
+				open-on-workspace "chill"
+				default-column-width { proportion 1.0; }
+				opacity 1.0
+		}
+		window-rule {
+				match app-id=r#"moe.launcher.an-anime-game-launcher"#
+				open-on-workspace "chill"
+				default-column-width { proportion 0.5; }
+				opacity 1.0
+		}
+		
+		window-rule {
+				match app-id=r#"moe.launcher.the-honkers-railway-launcher"#
+				open-on-workspace "chill"
+				default-column-width { proportion 0.5; }
+				opacity 1.0
+		}
+		window-rule {
+				match app-id=r#"starrail.exe"#
+				open-on-workspace "chill"
+				default-column-width { proportion 1.0; }
+				opacity 1.0
+		}
+		window-rule {
+				match app-id=r#"moe.launcher.sleepy-launcher"#
+				open-on-workspace "chill"
+				default-column-width { proportion 0.5; }
+				opacity 1.0
+		}
+		window-rule {
+				match app-id=r#"zenlesszonezero.exe"#
+				open-on-workspace "chill"
+				default-column-width { proportion 1.0; }
+				opacity 1.0
+		}
+		window-rule {
+				match app-id=r#"heroic"#
+				open-on-workspace "chill"
+				default-column-width { proportion 0.5; }
+				opacity 1.0
+		}
+		window-rule {
+				match app-id=r#"steam_app_0"#
+				open-on-workspace "chill"
+				default-column-width { proportion 1.0; }
+				opacity 1.0
+		}
+		window-rule {
+				match app-id=r#"steam"#
+				open-on-workspace "chill"
+				default-column-width { proportion 0.5; }
+				opacity 1.0
+		}
+		window-rule {
+				match title="Reverse: 1999"
+				open-on-workspace "chill"
+				default-column-width { proportion 1.0; }
+				opacity 1.0
+		}
+
+
+
+		gestures {
+			hot-corners {
+					off
+			}
+	}
 
 // ────────────── Keybindings ──────────────
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
 
-// Screenshot-path
 screenshot-path "~/Desktop/haven/screenshot/%Y-%m-%d.png"
 binds {
     MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
@@ -52,24 +357,13 @@ binds {
 	MOD+SHIFT+I hotkey-overlay-title=" clip smth studio " { spawn "dex" "/home/xavier/Desktop/meow/clip_studio/CLIP_STUDIO.desktop"; }
 	MOD+R hotkey-overlay-title=" puring your ref " { spawn "PureRef"; }
 
-    MOD+B				hotkey-overlay-title="browser: " { spawn "librewolf"; }   
+    MOD+B				hotkey-overlay-title="browser: " { spawn "flatpak" "run" "io.gitlab.librewolf-community"; }   
 	MOD+M repeat=false	hotkey-overlay-title=" spot the satisfy " { spawn "dex" "/usr/share/applications/spotify-adblock.desktop"; }
 	MOD+E			hotkey-overlay-title="file manager: files" { spawn "nemo"; }
 
     MOD+SHIFT+E				hotkey-overlay-title="file manager: ranger" { spawn "kitty" "-e" "ranger"; }
 
-    // ─── Audio Controls ───
-    // The allow-when-locked=true property makes them work even when the session is locked.
-    XF86AudioRaiseVolume                allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
-    XF86AudioLowerVolume                allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
-    XF86AudioMute                       allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
-    XF86AudioMicMute                    allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-    XF86AudioNext                       allow-when-locked=true { spawn "playerctl" "next"; }
-    XF86AudioPause                      allow-when-locked=true { spawn "playerctl" "play-pause"; }
-    XF86AudioPlay                       allow-when-locked=true { spawn "playerctl" "play-pause"; }
-    XF86AudioPrev                       allow-when-locked=true { spawn "playerctl" "previous"; }
-
-    // ─── Window Movement and Focus ───
+	// ─── Window Movement and Focus ───
     MOD+X                               { close-window; }
 
     MOD+H                               { focus-column-left; }
@@ -108,12 +402,12 @@ binds {
     CTRL+7                          { move-column-to-workspace 7; }
     CTRL+8                          { move-column-to-workspace 8; }
     CTRL+9                          { move-column-to-workspace 9; }
-
-//    MOD+TAB                             { focus-workspace-previous; }
+	
+	MOD+TAB                             { focus-workspace-previous; }
 
     // ─── Layout Controls ───
-//    MOD+SHIFT+F                          { expand-column-to-available-width; }
-//    MOD+T                               { center-column; }
+    MOD+F                          { expand-column-to-available-width; }
+    MOD+C                               { center-column; }
     MOD+CTRL+C                          { center-visible-columns; }
     MOD+SHIFT+H						{ set-column-width "-10%"; }
     MOD+SHIFT+L						{ set-column-width "+10%"; }
@@ -122,183 +416,35 @@ binds {
 
     // ─── Modes ───
     MOD+V                               { toggle-window-floating; }
-    MOD+F                               { fullscreen-window; }
+    MOD+SHIFT+F                               { fullscreen-window; }
     MOD+W                               { toggle-column-tabbed-display; }
 
     // ─── Screenshots ───
-CTRL+SHIFT+1                        { screenshot; }
-CTRL+SHIFT+2                        { screenshot-screen; }
-CTRL+SHIFT+3                        { screenshot-window; }
+	CTRL+SHIFT+1                        { screenshot; }
+	CTRL+SHIFT+2                        { screenshot-window; }
+	CTRL+SHIFT+3                        { screenshot-screen; }
 
     // ─── Emergency Escape Key ───
-    MOD+ESCAPE                          allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+    // MOD+ESCAPE                          allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // ─── Exit / Power ───
-    CTRL+ALT+DELETE                     { quit; } // Also quits Niri
-    MOD+SHIFT+P                         { power-off-monitors; } // Turn off screens (useful for OLED or privacy)
-    MOD+Q                               repeat=false { toggle-overview; }
+    CTRL+ALT+DELETE                     { quit; }
+	MOD+ESCAPE                         { power-off-monitors; }
+	MOD+Q                               repeat=false { toggle-overview; }
+
+    // ─── Audio Controls ───
+    // The allow-when-locked=true property makes them work even when the session is locked.
+    XF86AudioRaiseVolume                allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioLowerVolume                allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioMute                       allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute                    allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86AudioNext                       allow-when-locked=true { spawn "playerctl" "next"; }
+    XF86AudioPause                      allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioPlay                       allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioPrev                       allow-when-locked=true { spawn "playerctl" "previous"; }
+
 }
 
-// ────────────── Startup Applications ──────────────
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#spawn-at-startup
-
-    spawn-at-startup "mako" // Mako
-	spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1" "&"
-	spawn-at-startup "xwayland-satellite"
-	spawn-at-startup "otd-daemon" "&"
-    spawn-at-startup "~/Desktop/meow/colors/pywal16"
-	spawn-at-startup "brightnessctl" "set" "100%"
-
-    prefer-no-csd    
-// ────────────── Layout Settings ──────────────
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
-
-    layout {
-        gaps 3 // Gap between windows
-        center-focused-column "on-overflow" // Don’t auto-center focused column
-
-        preset-column-widths {
-            proportion 0.33333
-            proportion 0.5
-            proportion 0.66667
-        }
-		default-column-width {proportion 0.5; }
-
-        focus-ring {
-		    off
-            width 3
-            active-color "#00ac89"
-            inactive-color "#505050"
-        }
-
-        shadow {
-            softness 30
-            spread 5
-            offset x=0 y=5
-            color "#0007"
-        }
-
-        struts {}
-    }
-
-// ────────────── Animation Settings ──────────────
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
-    animations {
-        workspace-switch {
-            spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
-        }
-        window-open {
-            duration-ms 50
-            curve "ease-out-quad"
-        }
-        window-close {
-            duration-ms 50
-            curve "ease-out-cubic"
-        }
-        horizontal-view-movement {
-            spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
-        }
-        window-movement {
-            spring damping-ratio=1.0 stiffness=800 epsilon=0.0001
-        }
-        window-resize {
-            spring damping-ratio=1.0 stiffness=1000 epsilon=0.0001
-        }
-        config-notification-open-close {
-            spring damping-ratio=0.6 stiffness=1200 epsilon=0.001
-        }
-        screenshot-ui-open {
-            duration-ms 50
-            curve "ease-out-quad"
-        }
-        overview-open-close {
-            spring damping-ratio=1.0 stiffness=900 epsilon=0.0001
-        }
-    }
-
-// ────────────── Window Rules ──────────────
-// https://github.com/YaLTeR/niri/wiki/Configurati/on:-Window-Rules
-    workspace "art"
-	workspace "chill"
-	workspace "stuff"
-    window-rule {
-        geometry-corner-radius 5 // Set every window radius to 20
-        clip-to-geometry true
-		opacity 0.97
-    }
-	  window-rule {
-		match app-id=r#"PureRef"# 
-		open-floating true
-		open-on-workspace "art"
-		default-column-width { proportion 0.25; }
-		default-window-height { fixed 500; }
-    }
-	window-rule {
-		match app-id=r#"Nsxiv"# 
-		open-floating true
-		default-column-width { proportion 0.25; }
-		default-window-height { fixed 500; }
-		opacity 1.0
-    }
-	window-rule {
-		match app-id=r#"FreeTube"# 
-		open-floating true
-		open-on-workspace "chill"
-		default-column-width { proportion 0.30; }
-		default-window-height { fixed 532; }
-		default-floating-position x=50 y=50 relative-to="top-right"
-
-    }
-	  window-rule {
-		match app-id=r#"kitty"# 
-		open-floating false
-		open-on-workspace "stuff"
-		default-column-display "tabbed"
-		default-column-width { proportion 0.6; }
-    }
-	  window-rule {
-		match app-id=r#"nemo"# 
-		open-on-workspace "stuff"
-		open-floating false
-		default-column-width { proportion 0.6; }
-    }
-	  window-rule {
-		match app-id=r#"obsidian"# 
-		open-floating true
-		open-focused true
-		open-on-workspace "chill"
-		default-column-width { proportion 0.4; }
-		default-window-height { proportion 0.7; }
-		default-floating-position x=50 y=10 relative-to="right"
-    }
-	  window-rule {
-		match app-id=r#"krita"#
-		open-on-workspace "art"
-		default-column-width { proportion 1.0; }
-		opacity 1.0
-		}
-
-	  window-rule {
-		match app-id=r#"genshinimpact.exe"#
-		open-on-workspace "chill"
-		default-column-width { proportion 1.0; }
-		opacity 1.0
-		}
-
-	  window-rule {
-		match app-id=r#"librewolf"#
-		open-on-workspace "stuff"
-		default-column-width { proportion 1.0; }
-		opacity 1.0
-		}
-
-
-
-	gestures {
-			hot-corners {
-					off
-			}
-	}
 
 // ────────────── Environment Variables ──────────────
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#environment

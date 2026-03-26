@@ -7,21 +7,21 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-   # Enable OpenTabletDriver
-  hardware.opentabletdriver.enable = true;
 
-  # Required by OpenTabletDriver
-  hardware.uinput.enable = true;
+  hardware = {
+  	opentabletdriver.enable = true;
+	uinput.enable = true;	
+	graphics.enable = true;    
+  	nvidia = {
+    		open = false;         
+    		nvidiaSettings = true;
+    	};
+
+  };
   boot.kernelModules = [ "uinput" ];
 
   networking.hostName = "aha";
   nixpkgs.config.allowUnfree = true;
-
-  hardware.graphics.enable = true;     # Enable graphics
-  hardware.nvidia = {
-    open = false;          # Use proprietary mode
-    nvidiaSettings = true; # Optional: installs nvidia-settings tool
-  };
 
   # Optional: enable PRIME offload (important on laptops with integrated + dGPU)
   # hardware.nvidia.prime = {
@@ -32,111 +32,148 @@
   # };
 
   networking.networkmanager.enable = true;
-
-  time.timeZone = "Asia/Bishkek";
+  time.timeZone = "Asia/Japan";
 
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   services = {
-  xserver = {
-  	enable = true;
-	videoDrivers = [ "nvidia" ];
+  	xserver = {
+  		enable = true;
+		videoDrivers = [ "nvidia" ];
 	};
-
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
+  	pipewire = {
+     		enable = true;
+     		pulse.enable = true;
+  	};
+  	displayManager.sddm = {
+		theme = "sddm-astronaut-theme";
+		extraPackages = [ pkgs.sddm-astronaut ];
+  		enable = true;
+		wayland.enable = true;
+	};
+  libinput.enable = true;
+  upower.enable = true;
   printing.enable = true;
-  pipewire = {
-     enable = true;
-     pulse.enable = true;
-  };
   openssh.enable = true;
   asusd.enable = true;
-
-  libinput.enable = true;
-  displayManager.sddm = {
-  	enable = true;
-	wayland.enable = true;
-	};
+  flatpak.enable = true;
 
 };
 
   users.users.xavier = {
      isNormalUser = true;
-     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+     extraGroups = [ "wheel" ];
      packages = with pkgs; [
        tree
      ];
      shell = pkgs.zsh;
    };
 
-   programs.niri.enable = true;
-   programs.zsh.enable = true;
-   programs.rog-control-center.enable = true;
+   programs = {
+      	gnupg.agent = {
+     		enable = true;
+     		enableSSHSupport = true;
+  	};
+   niri.enable = true;
+   hyprland = {
+		   enable = true;
+		   withUWSM = true;
+   };
+   nix-ld.enable = true;
+   zsh.enable = true;
+   rog-control-center.enable = true;
+   steam.enable = true;
+   mtr.enable = true;
 
    environment.systemPackages = with pkgs; [
     neovim
     wget
     git
     kitty
-    alacritty
-    fuzzel
-    qutebrowser
-    zsh
-    fzf-zsh
+    rofi
+    eww
+    fzf
     nemo
     nsxiv
     swaybg
-    wineWowPackages.waylandFull
     krita-unwrapped
-    ranger
     pywal16
-    zoxide
-    obsidian
     anki-bin
     ankiAddons.anki-connect
     ankiAddons.review-heatmap
-    eww
     fcitx5-mozc
     fcitx5
-    rofi
-    texlivePackages.cjkpunct
-    texlivePackages.cjkutils
-    p7zip
     file-roller
     xarchiver
+    p7zip
     unzip
     zip
     gnutar
-    fzf
     wl-clipboard
     fastfetch
-    nwg-look
     xwayland-satellite
     psmisc
     python315
-    librewolf
     kdePackages.polkit-kde-agent-1
-    glib
-    python314Packages.pygobject3
-    pavucontrol
+	nwg-look
+
+	pavucontrol
+    wineWowPackages.waylandFull
+    bottles
     winetricks
     brightnessctl
-    wineWowPackages.stable
+    ayugram-desktop
+    file
     freetube
-   ];
+	dex
+    heroic
+    protonplus
+    swww
+    folder-color-switcher
+    gcc
+    fzf
+    scriptisto
+    lazygit
+    cargo
+    clippy
+    peaclock
+    sunsetr
+    gruvbox-gtk-theme
+    catppuccin-papirus-folders
+    protontricks
+    ripgrep
+    zathura
+    qutebrowser
+    lua5_4_compat
+    dwt1-shell-color-scripts
+    htop
+	obs-studio
+   	texlivePackages.cjk
+	pureref
+	hyprland-protocols
+	hyprpaper
+	hyprsunset
+	hyprpolkitagent
+	dex
+	basalt
+	nnn
+	hyprshot
+	sddm-astronaut
+];
 
-  programs.mtr.enable = true;
-  programs.gnupg.agent = {
-     enable = true;
-     enableSSHSupport = true;
-  };
+   fonts.packages = with pkgs; [
+    hachimarupop
+    udev-gothic-nf
+	nerd-fonts.jetbrains-mono
+    ];
 
-  security.sudo = {
+    environment.localBinInPath = true;
+
+    security.sudo = {
         # place top level options (like wheelNeedPassword) here
         enable = true;
-	execWheelOnly = false;
+		execWheelOnly = false;
         wheelNeedsPassword = false;
 
         extraConfig = "#includedir /etc/sudoers.d";

@@ -1,0 +1,6 @@
+XDG_DESKTOP_DIR="$HOME/Desktop"
+XDG_PICTURES_DIR="$HOME/Desktop/conesque"
+XDG_DOCUMENTS_DIR="$HOME/Desktop/bale"
+XDG_MUSIC_DIR="$HOME/Desktop/shabang"
+XDG_VIDEOS_DIR="$HOME/Desktop/vids"
+XDG_DOWNLOAD_DIR="$HOME/Desktop/abre"
