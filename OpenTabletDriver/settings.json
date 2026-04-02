@@ -69,11 +69,11 @@
             "Enable": true
           },
           {
-            "Path": "OpenTabletDriver.Desktop.Binding.KeyBinding",
+            "Path": "OpenTabletDriver.Desktop.Binding.MultiKeyBinding",
             "Settings": [
               {
-                "Property": "Key",
-                "Value": "C"
+                "Property": "Keys",
+                "Value": "Alt+LeftControl"
               }
             ],
             "Enable": true
@@ -85,67 +85,67 @@
             "Settings": [
               {
                 "Property": "Key",
+                "Value": "D1"
+              }
+            ],
+            "Enable": true
+          },
+          {
+            "Path": "OpenTabletDriver.Desktop.Binding.KeyBinding",
+            "Settings": [
+              {
+                "Property": "Key",
+                "Value": "D2"
+              }
+            ],
+            "Enable": true
+          },
+          {
+            "Path": "OpenTabletDriver.Desktop.Binding.KeyBinding",
+            "Settings": [
+              {
+                "Property": "Key",
+                "Value": "D3"
+              }
+            ],
+            "Enable": true
+          },
+          {
+            "Path": "OpenTabletDriver.Desktop.Binding.KeyBinding",
+            "Settings": [
+              {
+                "Property": "Key",
+                "Value": "D4"
+              }
+            ],
+            "Enable": true
+          },
+          {
+            "Path": "OpenTabletDriver.Desktop.Binding.MultiKeyBinding",
+            "Settings": [
+              {
+                "Property": "Keys",
+                "Value": "Control+Alt+L"
+              }
+            ],
+            "Enable": true
+          },
+          {
+            "Path": "OpenTabletDriver.Desktop.Binding.MultiKeyBinding",
+            "Settings": [
+              {
+                "Property": "Keys",
+                "Value": "Control+Alt+T"
+              }
+            ],
+            "Enable": true
+          },
+          {
+            "Path": "OpenTabletDriver.Desktop.Binding.KeyBinding",
+            "Settings": [
+              {
+                "Property": "Key",
                 "Value": "LeftAlt"
-              }
-            ],
-            "Enable": true
-          },
-          {
-            "Path": "OpenTabletDriver.Desktop.Binding.MultiKeyBinding",
-            "Settings": [
-              {
-                "Property": "Keys",
-                "Value": "Alt+LeftControl"
-              }
-            ],
-            "Enable": true
-          },
-          {
-            "Path": "OpenTabletDriver.Desktop.Binding.MultiKeyBinding",
-            "Settings": [
-              {
-                "Property": "Keys",
-                "Value": "Control+M"
-              }
-            ],
-            "Enable": true
-          },
-          {
-            "Path": "OpenTabletDriver.Desktop.Binding.MultiKeyBinding",
-            "Settings": [
-              {
-                "Property": "Keys",
-                "Value": "Control+Alt+RightBracket"
-              }
-            ],
-            "Enable": true
-          },
-          {
-            "Path": "OpenTabletDriver.Desktop.Binding.MultiKeyBinding",
-            "Settings": [
-              {
-                "Property": "Keys",
-                "Value": "Alt+RightBracket"
-              }
-            ],
-            "Enable": true
-          },
-          {
-            "Path": "OpenTabletDriver.Desktop.Binding.MultiKeyBinding",
-            "Settings": [
-              {
-                "Property": "Keys",
-                "Value": "Alt+LeftBracket"
-              }
-            ],
-            "Enable": true
-          },
-          {
-            "Path": "OpenTabletDriver.Desktop.Binding.MultiKeyBinding",
-            "Settings": [
-              {
-                "Property": "Keys",
-                "Value": "Control+Alt+LeftBracket"
               }
             ],
             "Enable": true
@@ -165,7 +165,7 @@
             "Settings": [
               {
                 "Property": "Keys",
-                "Value": "Control+Shift+N"
+                "Value": "Control+M"
               }
             ],
             "Enable": true
