@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Script originated from BreadOnPenguins
+# script yoinked from BreadOnPenguins
 SCRIPT=~/Desktop/meow/colors/pywal16
 
 menu() {
@@ -15,11 +15,7 @@ menu() {
         exit 0
     fi
 
-#open images with nsxiv, -o opens all images in the folder
-    
 	CHOICE=$(nsxiv -otb ~/Desktop/conesque/refs/"$FOLDER"/*)
-
-#only run scripts if a file was actually selected/opened
 
     if [[ -n "$CHOICE" ]]; then
 		$SCRIPT
@@ -31,7 +27,6 @@ menu() {
 done
 }
 
-# Main entry point
 case "$#" in
     0)
         menu

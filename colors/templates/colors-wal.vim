@@ -1,18 +1,17 @@
 " Special
-let background = "{color9}"
-let foreground = "{background}"
-let background_opacity = "{0.5}"
+let background = "{background}"
+let foreground = "{color3}"
 let cursor     = "{cursor}"
 
 " Colors
-let color0  = "{color7}"
+let color0  = "{color0}"
 let color1  = "{color1}"
 let color2  = "{color2}"
 let color3  = "{color3}"
 let color4  = "{color5}"
 let color5  = "{color4}"
 let color6  = "{color6}"
-let color7  = "{color0}"
+let color7  = "{color7}"
 let color8  = "{color8}"
 let color9  = "{color9}"
 let color10 = "{color10}"

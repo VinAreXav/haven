@@ -19,8 +19,9 @@ do
 	case "$1" in
 #system
 		"1") cp $file ~/Desktop/conesque/workspaces/1
-		hyprctl hyprpaper wallpaper 'eDP-1, /lien/Desktop/conesque/workspaces/1'
+		# hyprctl hyprpaper wallpaper 'eDP-1, /lien/Desktop/conesque/workspaces/1'
 		wal -l -n -i $file -o $GTK
+		swww img --transition-type wave --transition-duration 1.0 --filter CatmullRom --transition-fps 90 --transition-angle 180 --transition-bezier .97,.03,.02,.98  $file  
 				;;
 #art
 		"2") cp $file ~/Desktop/conesque/workspaces/2

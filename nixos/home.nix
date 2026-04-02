@@ -8,10 +8,8 @@
 			enable = true;
 			cursorTheme.package = pkgs.bibata-cursors;
 			cursorTheme.name = "Bibata-Modern-Ice";
-			theme.package = pkgs.kanagawa-gtk-theme;
-			theme.name = "kanagawa";
-			iconTheme.package = pkgs.numix-icon-theme;
-			iconTheme.name = "Numix";
+			theme.name = "oomox-wal";
+			iconTheme.name = "oomox-wal";
 	};
 
 	qt = {

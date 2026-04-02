@@ -4,8 +4,7 @@ rm -rf ~/.themes/
 pkill nemo
 THEME_DIR="/lien/Desktop/meow/colors/theme_oomox/"
 THEME="/lien/Desktop/meow/colors/theme_oomox/gtk-theme/change_color.sh"
+LOCAL="/home/xavier/.local/share/"
 
-nix develop "$THEME_DIR" -c "$THEME" ~/.cache/wal/colors-oomox 
-
-/lien/Desktop/meow/colors/icons_numix/change_color.sh ~/.cache/wal/colors-oomox
-nemo 
+nix develop "$THEME_DIR" -c "$THEME" ~/.cache/wal/colors-oomox -o oomox-wal -t "$LOCAL"/themes/
+/lien/Desktop/meow/colors/icons_numix/change_color.sh ~/.cache/wal/colors-oomox -o oomox-wal -d "$LOCAL"/icons/oomox-wal/

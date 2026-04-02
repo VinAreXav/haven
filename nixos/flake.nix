@@ -21,8 +21,8 @@
 				inputs.nixpkgs.follows = "nixpkgs";
 				inputs.quickshell.follows = "quickshell";
 		};
-};
-	outputs = { nixpkgs, home-manager, aagl, quickshell, qml-niri, ... }:{
+	};
+	outputs = { nixpkgs, home-manager, aagl, quickshell, qml-niri,  ... }:{
 			nixosConfigurations.aha = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			modules = [
@@ -34,7 +34,6 @@
 						useUserPackages = true;
 						users.xavier = import ./home.nix;
 						backupFileExtension = "backup";
-
 					};
 				}
 
@@ -51,7 +50,7 @@
 						qml-niri.packages.x86_64-linux.quickshell
 						];
 				}
-			
+							
 			];
 		};
 	};

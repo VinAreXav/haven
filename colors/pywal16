@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 export PATH="$HOME/.local/bin:/usr/bin:/bin:$PATH"
-~/Desktop/meow/qof/wallpaper-per-workspace ~/Desktop/conesque/workspaces &
-##its in ~/.local/bin
+cp ~/.cache/wal/Colors.qml /lien/Desktop/meow/quickshell/hyprshell/
 #killall swaybg
 #swaybg -m fill -i "$(cat ~/.cache/wal/wal)" &
 # killall waybar

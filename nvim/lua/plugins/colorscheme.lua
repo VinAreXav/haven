@@ -16,7 +16,7 @@ return {
 		},
 		config = function(_, opts)
         require("neopywal").setup(otps)
-		vim.cmd.colorscheme("neopywal-light")
+		vim.cmd.colorscheme("neopywal")
 				end,
 						},
 		}

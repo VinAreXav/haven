@@ -10,7 +10,7 @@ input {
 
     touchpad {
 		//	dwt
-		accel-speed 0.4
+		accel-speed 0.3
         natural-scroll
     }
 
@@ -33,17 +33,19 @@ output "BOE NE160WUM-NX2 Unknown" {
 	spawn-at-startup "xwayland-satellite"
 	spawn-at-startup "otd-daemon" "&"
 	spawn-at-startup "swww-daemon"
-    spawn-at-startup "~/Desktop/meow/colors/pywal16"
+//    spawn-at-startup "~/Desktop/meow/colors/pywal16"
+	spawn-at-startup "/lien/Desktop/meow/qof/wallpaper-per-workspace" "/lien/Desktop/conesque/workspaces" "&"
 	spawn-at-startup "brightnessctl" "set" "100%"
     spawn-at-startup "sunsetr" "-b"
-	spawn-at-startup "niri-float-sticky"
+	spawn-at-startup "niri-float-sticky"	
+	spawn-at-startup "/lien/Desktop/meow/niri/custom/niri-scripts/niri-sidebar-auto-reorder.sh"
 	spawn-at-startup "quickshell" "--config" "test-bar"
 
 
 // ────────────── Layout Settings ──────────────
     layout {
         gaps 5 
-		center-focused-column "on-overflow"
+		center-focused-column "always"
 		background-color "transparent"
 
         preset-column-widths {
@@ -113,13 +115,18 @@ output "BOE NE160WUM-NX2 Unknown" {
 		window-rule {
 				geometry-corner-radius 10
 				clip-to-geometry true	
-				opacity 0.97
+				opacity 0.5
+		}
+		window-rule {
+				match is-focused=true
+
+				opacity 0.98
 		}
 		window-rule {
 				match app-id=r#"Nsxiv"# 
 				open-floating true
-				default-column-width { proportion 0.25; }
-				default-window-height { fixed 500; }
+				default-column-width { proportion 0.3; }
+				default-window-height { fixed 1000; }
 				opacity 1.0
 		}
 		layer-rule {
@@ -131,8 +138,7 @@ workspace "system"
 		window-rule {
 				match app-id=r#"librewolf"#
 				open-on-workspace "system"
-				default-column-width { proportion 1.0; }
-				opacity 0.98
+				default-column-width { proportion 0.5; }
 		}
 				
 		window-rule {
@@ -141,8 +147,7 @@ workspace "system"
 				open-focused false
 				default-column-width { fixed 378; }
 				default-window-height { fixed 234; }
-				default-floating-position x=50 y=100 relative-to="right"
-				opacity 1.0
+				default-floating-position x=50 y=100 relative-to="bottom-left"
 		}
 
 		window-rule {
@@ -151,7 +156,7 @@ workspace "system"
 				default-column-display "tabbed"
 				default-column-width { proportion 0.45; }
 				default-window-height { proportion 0.55; }
-				default-floating-position x=90 y=80 relative-to="right"
+				default-floating-position x=20 y=20 relative-to="bottom-right"
 		}
 		window-rule {
 				match app-id=r#"nemo"# 
@@ -159,7 +164,6 @@ workspace "system"
 				default-column-width { fixed 770; }
 				default-window-height { fixed 565; }
 				default-floating-position x=80 y=230 relative-to="left"
-				opacity 0.95
 		}
 
 workspace "art" {
@@ -182,15 +186,19 @@ workspace "art" {
             inactive-color "#505050"
         }
         shadow {
-            softness 30
+            softness 10
             spread 5
             offset x=0 y=5
             color "#0007"
         }
-        struts {}
-    }
+        struts {
+		left 0
+        right 0
+        top -20
+        bottom 0
+		}
+		}
 }
-
 		window-rule {
 				match app-id=r#"krita"#
 //				open-on-workspace "art"
@@ -203,10 +211,14 @@ workspace "art" {
 //				open-on-workspace "art"
 				default-column-width { proportion 0.25; }
 				default-window-height { fixed 500; }
+				default-floating-position x=150 y=70 relative-to="top-right"
+				opacity 1.0
+
 		}
 		window-rule {
+				open-fullscreen false
+				tiled-state true
 				match app-id=r#"clipstudiopaint.exe"#
-				open-fullscreen true
 				open-on-workspace "art"
 				default-column-width { proportion 1.0; }
 				default-window-height { proportion 1.0; }
@@ -242,7 +254,7 @@ workspace "chill" {
         }
 
         shadow {
-            softness 30
+            softness 10
             spread 5
             offset x=0 y=5
             color "#0007"
@@ -275,62 +287,52 @@ workspace "chill" {
 				match app-id=r#"genshinimpact.exe"#
 				open-on-workspace "chill"
 				default-column-width { proportion 1.0; }
-				opacity 1.0
 		}
 		window-rule {
 				match app-id=r#"moe.launcher.an-anime-game-launcher"#
 				open-on-workspace "chill"
 				default-column-width { proportion 0.5; }
-				opacity 1.0
 		}
 		
 		window-rule {
 				match app-id=r#"moe.launcher.the-honkers-railway-launcher"#
 				open-on-workspace "chill"
 				default-column-width { proportion 0.5; }
-				opacity 1.0
 		}
 		window-rule {
 				match app-id=r#"starrail.exe"#
 				open-on-workspace "chill"
 				default-column-width { proportion 1.0; }
-				opacity 1.0
 		}
 		window-rule {
 				match app-id=r#"moe.launcher.sleepy-launcher"#
 				open-on-workspace "chill"
 				default-column-width { proportion 0.5; }
-				opacity 1.0
 		}
 		window-rule {
 				match app-id=r#"zenlesszonezero.exe"#
 				open-on-workspace "chill"
 				default-column-width { proportion 1.0; }
-				opacity 1.0
 		}
 		window-rule {
 				match app-id=r#"heroic"#
 				open-on-workspace "chill"
 				default-column-width { proportion 0.5; }
-				opacity 1.0
 		}
 		window-rule {
 				match app-id=r#"steam_app_0"#
 				open-on-workspace "chill"
 				default-column-width { proportion 1.0; }
-				opacity 1.0
 		}
 		window-rule {
 				match app-id=r#"steam"#
 				open-on-workspace "chill"
 				default-column-width { proportion 0.5; }
-				opacity 1.0
 		}
 		window-rule {
 				match title="Reverse: 1999"
 				open-on-workspace "chill"
 				default-column-width { proportion 1.0; }
-				opacity 1.0
 		}
 
 
@@ -340,7 +342,31 @@ workspace "chill" {
 					off
 			}
 	}
+recent-windows {
+    // off
+    debounce-ms 750
 
+    open-delay-ms 20
+
+    highlight {
+        active-color "#999999ff"
+        urgent-color "#ff9999ff"
+        padding 30
+        corner-radius 0
+    }
+
+    previews {
+        max-height 480
+        max-scale 0.5
+    }
+
+    binds {
+		Mod+Tab         { next-window; }
+//        Mod+Shift+Tab   { previous-window; }
+        Mod+grave       { next-window     filter="app-id"; }
+ //       Mod+Shift+grave { previous-window filter="app-id"; }
+    }
+}
 // ────────────── Keybindings ──────────────
 
 screenshot-path "~/Desktop/haven/screenshot/%Y-%m-%d.png"
@@ -348,21 +374,30 @@ binds {
     MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
 
     // ─── Applications ───
-    MOD+T				hotkey-overlay-title="KITTY! " { spawn "kitty"; }
-    MOD+D	repeat=false	hotkey-overlay-title="app launcher: " { spawn "rofi" "-modi" "'drun,ssh'" "-show" "drun"; }
-
-	MOD+N				hotkey-overlay-title="editor: " { spawn "kitty" "-e" "nvim"; }
+	MOD+E	{ spawn "nemo"; }
+	MOD+D	repeat=false	hotkey-overlay-title="app launcher: " { spawn "rofi" "-modi" "'drun,ssh'" "-show" "drun"; }
 	
-	MOD+I	repeat=false	hotkey-overlay-title=" Walmenu  " {spawn "~/Desktop/meow/colors/walmenu.sh"; }
-	MOD+SHIFT+I hotkey-overlay-title=" clip smth studio " { spawn "dex" "/home/xavier/Desktop/meow/clip_studio/CLIP_STUDIO.desktop"; }
+	MOD+T	{ spawn "kitty" "--working-directory" "/"; }
+	MOD+N	{ spawn "kitty" "--working-directory" "/" "-e" "nvim"; }
+    MOD+W 	{ spawn "kitty" "-e" "basalt"; }	
+	
+	MOD+I	repeat=false	{spawn "~/Desktop/meow/colors/walmenu.sh"; }
+	// MOD+C { spawn "dex" "~/.local/share/applications/csp--CLIPStudioPaint--1774022681.052287.desktop"; }
 	MOD+R hotkey-overlay-title=" puring your ref " { spawn "PureRef"; }
+    
+	MOD+B	{ spawn "flatpak" "run" "io.gitlab.librewolf-community"; }   
+//  MOD+M repeat=false	{ spawn "dex" "/usr/share/applications/spotify-adblock.desktop"; }
+	
+	CTRL+SHIFT+1 repeat=false { spawn "anime-game-launcher"; }
+	CTRL+SHIFT+2 repeat=false { spawn "honkers-railway-launcher"; }
+	CTRL+SHIFT+3 repeat=false { spawn "sleepy-launcher"; }
+	CTRL+SHIFT+4 repeat=false { spawn "heroic"; }
 
-    MOD+B				hotkey-overlay-title="browser: " { spawn "flatpak" "run" "io.gitlab.librewolf-community"; }   
-	MOD+M repeat=false	hotkey-overlay-title=" spot the satisfy " { spawn "dex" "/usr/share/applications/spotify-adblock.desktop"; }
-	MOD+E			hotkey-overlay-title="file manager: files" { spawn "nemo"; }
-
-    MOD+SHIFT+E				hotkey-overlay-title="file manager: ranger" { spawn "kitty" "-e" "ranger"; }
-
+    MOD+A { spawn "/lien/Desktop/meow/niri/custom/niri-scripts/niri-floating-sidebar.sh" "toggle"; }
+    MOD+S { spawn "/lien/Desktop/meow/niri/custom/niri-scripts/niri-floating-sidebar.sh" "hide";}
+    MOD+SHIFT+A { spawn "/lien/Desktop/meow/niri/custom/niri-scripts/niri-floating-sidebar.sh" "flip";}
+	Mod+G { spawn "/lien/Desktop/meow/niri/custom/niri-scripts/auto-layout.sh";}
+	Mod+M { spawn "/lien/Desktop/meow/niri/custom/niri-scripts/set-master.sh";}
 	// ─── Window Movement and Focus ───
     MOD+X                               { close-window; }
 
@@ -371,15 +406,15 @@ binds {
     MOD+K                               { focus-window-up; }
     MOD+J                               { focus-window-down; }
 	
-    CTRL+H                          { move-column-left; }
-    CTRL+L                          { move-column-right; }
-	CTRL+K                         { move-window-up; }
-    CTRL+J                          { move-window-down; }
+    CTRL+H              { move-column-left; }
+    CTRL+L              { move-column-right; }
+	CTRL+K              { move-window-up; }
+    CTRL+J              { move-window-down; }
 
-    MOD+HOME                            { focus-column-first; }
-    MOD+END                             { focus-column-last; }
-    CTRL+HOME                       { move-column-to-first; }
-    CTRL+END                        { move-column-to-last; }
+    MOD+5               { focus-column-first; }
+    MOD+6               { focus-column-last; }
+    CTRL+5				{ move-column-to-first; }
+    CTRL+6              { move-column-to-last; }
 
     // ─── Workspace Switching ───
 
@@ -387,42 +422,41 @@ binds {
     MOD+2                               { focus-workspace 2; }
     MOD+3                               { focus-workspace 3; }
     MOD+4                               { focus-workspace 4; }
-    MOD+5                               { focus-workspace 5; }
-	MOD+6                               { focus-workspace 6; }
-    MOD+7                               { focus-workspace 7; }
-    MOD+8                               { focus-workspace 8; }
-	MOD+9                               { focus-workspace 9; }
+    //MOD+5                               { focus-workspace 5; }
+	//MOD+6                               { focus-workspace 6; }
+    //MOD+7                               { focus-workspace 7; }
+    //MOD+8                               { focus-workspace 8; }
+	//MOD+9                               { focus-workspace 9; }
 
     CTRL+1                          { move-column-to-workspace 1; }
     CTRL+2                          { move-column-to-workspace 2; }
     CTRL+3                          { move-column-to-workspace 3; }
     CTRL+4                          { move-column-to-workspace 4; }
-    CTRL+5                          { move-column-to-workspace 5; }
-    CTRL+6                          { move-column-to-workspace 6; }
-    CTRL+7                          { move-column-to-workspace 7; }
-    CTRL+8                          { move-column-to-workspace 8; }
-    CTRL+9                          { move-column-to-workspace 9; }
+    //CTRL+5                          { move-column-to-workspace 5; }
+    //CTRL+6                          { move-column-to-workspace 6; }
+    //CTRL+7                          { move-column-to-workspace 7; }
+    //CTRL+8                          { move-column-to-workspace 8; }
+    //CTRL+9                          { move-column-to-workspace 9; }
 	
-	MOD+TAB                             { focus-workspace-previous; }
+	// MOD+TAB                             { focus-workspace-previous; }
 
     // ─── Layout Controls ───
-    MOD+F                          { expand-column-to-available-width; }
-    MOD+C                               { center-column; }
-    MOD+CTRL+C                          { center-visible-columns; }
-    MOD+SHIFT+H						{ set-column-width "-10%"; }
-    MOD+SHIFT+L						{ set-column-width "+10%"; }
-    MOD+SHIFT+J						{ set-window-height "-10%"; }
-    MOD+SHIFT+K						{ set-window-height "+10%"; }
+    MOD+SHIFT+F			{ expand-column-to-available-width; }
+	MOD+C                           { center-column; }
+   	MOD+CTRL+L						{ set-column-width "+10%"; }
+    MOD+CTRL+H						{ set-column-width "-10%"; }
+	MOD+CTRL+J						{ set-window-height "-10%"; }
+    MOD+CTRL+K						{ set-window-height "+10%"; }
 
     // ─── Modes ───
-    MOD+V                               { toggle-window-floating; }
-    MOD+SHIFT+F                               { fullscreen-window; }
-    MOD+W                               { toggle-column-tabbed-display; }
-
+	MOD+V			{ toggle-window-floating; }
+    MOD+F			{ fullscreen-window; }
+	MOD+SHIFT+T		{ toggle-column-tabbed-display; }
+	MOD+P 			{ spawn "niri-float-sticky" "-ipc" "toggle_sticky"; }
     // ─── Screenshots ───
-	CTRL+SHIFT+1                        { screenshot; }
-	CTRL+SHIFT+2                        { screenshot-window; }
-	CTRL+SHIFT+3                        { screenshot-screen; }
+	PRINT 			{ screenshot; }
+	MOD+PRINT       { screenshot-window; }
+	MOD+CTRL+PRINT	{ screenshot-screen; }
 
     // ─── Emergency Escape Key ───
     // MOD+ESCAPE                          allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }

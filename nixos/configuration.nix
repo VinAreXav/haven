@@ -61,7 +61,31 @@
 
 };
 
-  users.users.xavier = {
+i18n.inputMethod = {
+    # Available since NixOS 24.11
+    enable = true;
+    type = "fcitx5";
+    fcitx5 = {
+      waylandFrontend = true;
+      ignoreUserConfig = true;  
+	  addons = with pkgs; [
+        fcitx5-mozc       
+	  ];
+      settings = {
+        inputMethod = {
+          "Groups/0" = {
+            Name = "Default";
+            "Default Layout" = "us";
+            DefaultIM = "keyboard-us";
+          };
+          "Groups/0/Items/0".Name = "keyboard-us";
+          "Groups/0/Items/2".Name = "mozc";
+        };
+      };
+    };
+  };
+  
+users.users.xavier = {
      isNormalUser = true;
      extraGroups = [ "wheel" ];
      packages = with pkgs; [
@@ -80,11 +104,12 @@
 		   enable = true;
 		   withUWSM = true;
    };
-   nix-ld.enable = true;
    zsh.enable = true;
    rog-control-center.enable = true;
    steam.enable = true;
    mtr.enable = true;
+
+};
 
    environment.systemPackages = with pkgs; [
     neovim
@@ -94,8 +119,11 @@
     rofi
     eww
     fzf
-    nemo
-    nsxiv
+    (nemo-with-extensions.override {
+      extensions = with pkgs; [ nemo-seahorse nemo-preview nemo-fileroller nemo-emblems folder-color-switcher ]; })
+	nsxiv
+	nwg-look
+	bc
     swaybg
     krita-unwrapped
     pywal16
@@ -116,9 +144,8 @@
     psmisc
     python315
     kdePackages.polkit-kde-agent-1
-	nwg-look
-
-	pavucontrol
+    glib
+    pavucontrol
     wineWowPackages.waylandFull
     bottles
     winetricks
@@ -139,8 +166,8 @@
     clippy
     peaclock
     sunsetr
+    kanagawa-gtk-theme
     gruvbox-gtk-theme
-    catppuccin-papirus-folders
     protontricks
     ripgrep
     zathura
@@ -149,7 +176,7 @@
     dwt1-shell-color-scripts
     htop
 	obs-studio
-   	texlivePackages.cjk
+#texlivePackages.cjk
 	pureref
 	hyprland-protocols
 	hyprpaper
@@ -160,6 +187,7 @@
 	nnn
 	hyprshot
 	sddm-astronaut
+	jq
 ];
 
    fonts.packages = with pkgs; [
