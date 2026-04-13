@@ -6,7 +6,7 @@ cp ~/.cache/wal/Colors.qml /lien/Desktop/meow/quickshell/hyprshell/
 # killall waybar
 # killall hyprpaper
 
-# pywalfox update 
+pywalfox update 
 
 #while [ ! -f ~/.cache/wal/krita.colors ]; do
 #	sleep 0.1
