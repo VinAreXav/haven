@@ -1,0 +1,91 @@
+// ────────────── Window Rules ──────────────
+include "art.kdl"
+include "chill.kdl"
+include "system.kdl"
+
+		window-rule {
+				geometry-corner-radius 10
+				clip-to-geometry true	
+				opacity 0.5
+				background-effect {
+						blur true
+						saturation 2
+				}
+		}
+		window-rule {
+				match is-focused=true
+				opacity 0.90
+				background-effect {
+						blur false
+						saturation 0
+				}
+		}
+		window-rule {
+				match app-id=r#"Nsxiv"# 
+				open-floating true
+				default-column-width { proportion 0.3; }
+				default-window-height { fixed 1000; }
+		}
+		layer-rule {
+				match namespace="^swww-daemon$"
+				place-within-backdrop true
+						background-effect {
+								blur true
+						}
+		}
+				
+		window-rule {
+				match title="Picture-in-Picture"
+				open-floating true
+				open-focused false
+				default-column-width { fixed 378; }
+				default-window-height { fixed 234; }
+				default-floating-position x=50 y=100 relative-to="bottom-left"
+		}
+		
+		window-rule {
+				match app-id="kitty"
+				match title="peaclock"
+				open-floating true
+				default-column-width { proportion 0.25; }
+				default-window-height { proportion 0.17; }
+				default-floating-position x=120 y=20 relative-to="top-left"					
+				background-effect {
+						xray false
+				}
+		}
+
+		window-rule {
+				match app-id="kitty"
+				open-floating true
+//				default-column-display "tabbed"
+				default-column-width { proportion 0.45; }
+				default-window-height { proportion 0.55; }
+				default-floating-position x=20 y=20 relative-to="bottom-right"				
+				background-effect {
+						xray false
+				}
+		}
+		window-rule {
+				match app-id=r#"nemo"# 
+				open-floating true
+				default-column-width { fixed 770; }
+				default-window-height { fixed 565; }
+				default-floating-position x=80 y=230 relative-to="left"
+		}
+		window-rule {
+				match app-id=r#"FreeTube"# 
+				open-floating true
+				default-column-width { proportion 0.30; }
+				default-window-height { fixed 532; }
+				default-floating-position x=50 y=50 relative-to="top-right"
+		}
+		window-rule {
+				match app-id=r#"obsidian"# 
+				open-floating true
+				open-focused true
+				default-column-width { proportion 0.4; }
+				default-window-height { proportion 0.7; }
+				default-floating-position x=50 y=10 relative-to="right"
+		}
+

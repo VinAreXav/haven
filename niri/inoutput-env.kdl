@@ -1,0 +1,43 @@
+// ────────────── Input Configuration ──────────────
+prefer-no-csd   
+input {
+		disable-power-key-handling
+    keyboard {
+        xkb {
+            layout "us" 
+			}
+    }
+
+    touchpad {
+		//	dwt
+		accel-speed 0.3
+        natural-scroll
+    }
+
+focus-follows-mouse
+workspace-auto-back-and-forth
+}
+// ────────────── Output Configuration ──────────────
+output "BOE NE160WUM-NX2 Unknown" {
+    mode "1920x1200@165.015"
+    scale 1
+    transform "normal"
+	focus-at-startup
+}
+
+// ────────────── Environment Variables ──────────────
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#environment
+    environment {
+        DISPLAY ":1"
+        ELECTRON_OZONE_PLATFORM_HINT "auto"
+//        QT_QPA_PLATFORM "wayland"
+        QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+        XDG_SESSION_TYPE "wayland"
+        XDG_CURRENT_DESKTOP "niri"
+    }
+
+    hotkey-overlay {
+        skip-at-startup
+    }
+
+

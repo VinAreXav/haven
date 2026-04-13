@@ -1,0 +1,101 @@
+// ────────────── Layout Settings ──────────────
+layout {
+        gaps 10 
+		center-focused-column "on-overflow"
+		background-color "transparent"
+
+        preset-column-widths {
+            proportion 0.33333
+            proportion 0.5
+            proportion 0.66667
+        }
+		default-column-width {proportion 0.5; }
+
+        focus-ring {
+		    off
+            width 3
+            active-color "#00ac89"
+            inactive-color "#505050"
+        }
+
+        shadow {
+			softness 10
+            spread 20
+            offset x=10 y=30
+            color "#0007"
+        }
+
+        struts {
+		left 0
+        right 0
+        top 0
+        bottom 0
+		}
+    }
+
+workspace "art" {
+		layout {
+        gaps 3   
+  		center-focused-column "never" 		
+		background-color "transparent"
+
+        preset-column-widths {
+            proportion 0.33333
+            proportion 0.5
+            proportion 0.66667
+        }
+		default-column-width {proportion 0.5; }
+
+        focus-ring {
+		    off
+            width 3
+            active-color "#00ac89"
+            inactive-color "#505050"
+        }
+        shadow {
+            softness 10
+            spread 5
+            offset x=0 y=5
+            color "#0007"
+        }
+        struts {
+		left 0
+        right 0
+        top 0
+        bottom 0
+		}
+		}
+}
+
+workspace "chill" {
+			layout {
+        gaps 3 
+		center-focused-column "always"
+		background-color "transparent"
+
+        preset-column-widths {
+            proportion 0.33333
+            proportion 0.5
+            proportion 0.66667
+        }
+		default-column-width {proportion 0.5; }
+
+        focus-ring {
+		    off
+            width 3
+            active-color "#00ac89"
+            inactive-color "#505050"
+        }
+
+        shadow {
+            softness 10
+            spread 5
+            offset x=0 y=5
+            color "#0007"
+        }
+
+        struts {}
+    }		
+}
+
+

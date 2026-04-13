@@ -6,7 +6,13 @@
 
 config_version: 2
 settings:
-  qt.highdpi:
-    global: true
-  zoom.default:
-    global: 120%
+  content.mute:
+    global: false
+  new_instance_open_target_window:
+    global: last-focused
+  tabs.position:
+    global: left
+  tabs.title.format:
+    global: '{audio}{index}: {current_title}'
+  tabs.width:
+    global: 7%

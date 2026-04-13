@@ -1,0 +1,117 @@
+// ────────────── Keybindings ──────────────
+
+screenshot-path "~/Desktop/haven/screenshot/%Y-%m-%d.png"
+binds {
+    MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
+	
+	F1 { spawn "chamel" "toggle"; }
+	F2 { spawn "chamel" "undo"; }
+	F3 { spawn "chamel" "clear"; }
+    F4 { spawn "kitty" "-e" "peaclock"; }
+
+	// ─── Applications ───
+	MOD+E	{ spawn "nemo"; }
+	MOD+D	repeat=false	hotkey-overlay-title="app launcher: " { spawn "rofi" "-modi" "'drun,ssh'" "-show" "drun" ; }
+	
+	MOD+T	{ spawn "kitty" "--working-directory" "/"; }
+	MOD+N	{ spawn "kitty" "--working-directory" "/" "-e" "nvim"; }
+    MOD+W 	{ spawn "kitty" "-e" "basalt"; }	
+	
+	MOD+I	repeat=false	{spawn "~/Desktop/meow/colors/walmenu.sh"; }
+	// MOD+C { spawn "dex" "~/.local/share/applications/csp--CLIPStudioPaint--1774022681.052287.desktop"; }
+	MOD+R hotkey-overlay-title=" puring your ref " { spawn "PureRef"; }
+    
+	MOD+B	{ spawn "flatpak" "run" "io.gitlab.librewolf-community"; }   
+//  MOD+M repeat=false	{ spawn "dex" "/usr/share/applications/spotify-adblock.desktop"; }
+	
+	CTRL+SHIFT+1 repeat=false { spawn "anime-game-launcher"; }
+	CTRL+SHIFT+2 repeat=false { spawn "honkers-railway-launcher"; }
+	CTRL+SHIFT+3 repeat=false { spawn "sleepy-launcher"; }
+	CTRL+SHIFT+4 repeat=false { spawn "heroic"; }
+
+    MOD+A { spawn "/lien/Desktop/meow/niri/custom/niri-scripts/niri-floating-sidebar.sh" "toggle"; }
+    MOD+S { spawn "/lien/Desktop/meow/niri/custom/niri-scripts/niri-floating-sidebar.sh" "hide";}
+    MOD+SHIFT+A { spawn "/lien/Desktop/meow/niri/custom/niri-scripts/niri-floating-sidebar.sh" "flip";}
+	Mod+G { spawn "/lien/Desktop/meow/niri/custom/niri-scripts/auto-layout.sh";}
+	Mod+M { spawn "/lien/Desktop/meow/niri/custom/niri-scripts/set-master.sh";}
+	// ─── Window Movement and Focus ───
+    MOD+X                               { close-window; }
+	Mod+O { toggle-window-rule-opacity; }
+    MOD+H { focus-column-left; }
+    MOD+L { focus-column-right; }
+//	MOD+K                               { focus-window-up; }
+//  MOD+J                               { focus-window-down; }
+	
+    CTRL+H              { move-column-left; }
+    CTRL+L              { move-column-right; }
+//	CTRL+K              { move-window-up; }
+//	CTRL+J              { move-window-down; }
+
+//    MOD+5               { focus-column-first; }
+//    MOD+6               { focus-column-last; }
+//    CTRL+5				{ move-column-to-first; }
+//    CTRL+6              { move-column-to-last; }
+
+    // ─── Workspace Switching ───
+
+    MOD+1                               { focus-workspace 1; }
+	MOD+K								{ focus-workspace-up; }
+	MOD+J								{ focus-workspace-down; }
+    //MOD+5                               { focus-workspace 5; }
+	//MOD+6                               { focus-workspace 6; }
+    //MOD+7                               { focus-workspace 7; }
+    //MOD+8                               { focus-workspace 8; }
+	//MOD+9                               { focus-workspace 9; }
+
+    CTRL+1                          { move-column-to-workspace 1; }
+    CTRL+K                          { move-column-to-workspace-up; }
+    CTRL+J                          { move-column-to-workspace-down; }
+    //CTRL+5                          { move-column-to-workspace 5; }
+    //CTRL+6                          { move-column-to-workspace 6; }
+    //CTRL+7                          { move-column-to-workspace 7; }
+    //CTRL+8                          { move-column-to-workspace 8; }
+    //CTRL+9                          { move-column-to-workspace 9; }
+	
+	// MOD+TAB                             { focus-workspace-previous; }
+
+    // ─── Layout Controls ───
+	MOD+C                         	{ center-column; }
+	MOD+SHIFT+C                     { center-visible-columns; }
+   	MOD+CTRL+L						{ set-column-width "+10%"; }
+    MOD+CTRL+H						{ set-column-width "-10%"; }
+	MOD+CTRL+K						{ set-window-height "-10%"; }
+    MOD+CTRL+J						{ set-window-height "+10%"; }
+
+    // ─── Modes ───
+	MOD+V							{ toggle-window-floating; }
+    MOD+F							{ fullscreen-window; }
+    MOD+SHIFT+F						{ expand-column-to-available-width; }
+	MOD+SHIFT+T						{ toggle-column-tabbed-display; }
+	MOD+P 							{ spawn "niri-float-sticky" "-ipc" "toggle_sticky"; }
+    // ─── Screenshots ───
+	PRINT 							{ screenshot; }
+	MOD+PRINT       				{ screenshot-window; }
+	MOD+CTRL+PRINT					{ screenshot-screen; }
+
+    // ─── Emergency Escape Key ───
+    // MOD+ESCAPE                          allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    // ─── Exit / Power ───
+    CTRL+ALT+DELETE                 { quit; }
+	MOD+ESCAPE                      { power-off-monitors; }
+	MOD+Q              repeat=false { toggle-overview; }
+
+    // ─── Audio Controls ───
+    // The allow-when-locked=true property makes them work even when the session is locked.
+    XF86AudioRaiseVolume                allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+"; }
+    XF86AudioLowerVolume                allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioMute                       allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+    XF86AudioMicMute                    allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86AudioNext                       allow-when-locked=true { spawn "playerctl" "next"; }
+    XF86AudioPause                      allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioPlay                       allow-when-locked=true { spawn "playerctl" "play-pause"; }
+    XF86AudioPrev                       allow-when-locked=true { spawn "playerctl" "previous"; }
+
+}
+
+

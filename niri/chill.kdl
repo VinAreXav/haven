@@ -1,0 +1,52 @@
+		window-rule {
+				match app-id=r#"genshinimpact.exe"#
+				open-on-workspace "chill"
+				default-column-width { proportion 1.0; }
+		}
+		window-rule {
+				match app-id=r#"moe.launcher.an-anime-game-launcher"#
+				open-on-workspace "chill"
+				default-column-width { proportion 0.5; }
+		}
+		
+		window-rule {
+				match app-id=r#"moe.launcher.the-honkers-railway-launcher"#
+				open-on-workspace "chill"
+				default-column-width { proportion 0.5; }
+		}
+		window-rule {
+				match app-id=r#"starrail.exe"#
+				open-on-workspace "chill"
+				default-column-width { proportion 1.0; }
+		}
+		window-rule {
+				match app-id=r#"moe.launcher.sleepy-launcher"#
+				open-on-workspace "chill"
+				default-column-width { proportion 0.5; }
+		}
+		window-rule {
+				match app-id=r#"zenlesszonezero.exe"#
+				open-on-workspace "chill"
+				default-column-width { proportion 1.0; }
+		}
+		window-rule {
+				match app-id=r#"heroic"#
+				open-on-workspace "chill"
+				default-column-width { proportion 0.5; }
+		}
+		window-rule {
+				match app-id=r#"steam_app_0"#
+				open-on-workspace "chill"
+				default-column-width { proportion 1.0; }
+		}
+		window-rule {
+				match app-id=r#"steam"#
+				open-on-workspace "chill"
+				default-column-width { proportion 0.5; }
+		}
+		window-rule {
+				match title="Reverse: 1999"
+				open-on-workspace "chill"
+				default-column-width { proportion 1.0; }
+		}
+

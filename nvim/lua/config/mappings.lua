@@ -7,27 +7,28 @@ end
 map("", "<Space>", "<Nop>")
 
 -- buffers
-map("n", "<S-l>", ":bnext<CR>")
-map("n", "<S-h>", ":bprevious<CR>")
-map("n", "<leader>q", ":BufferClose<CR>") 
-map("n", "<leader>Q", ":BufferClose!<CR>")
-map("n", "<leader>U", "::bufdo bd<CR>") --close all
-map('n', '<leader>ml', ':vsplit<CR>:bnext<CR>') --ver split + open next buffer
-
+map("n", "<S-l>", ":BufferLineCycleNext<CR>")
+map("n", "<S-h>", ":BufferLineCyclePrev<CR>")
+map("n", "<leader>q", ":bdelete!<CR>") 
+map("n", "<leader>Q", ":BufferLineCloseOthers<CR>") --close all
+map('n', '<leader>sn', ':vsplit<CR>:bnext<CR>') --ver split + open next buffer
 -- buffer position nav + reorder
-map('n', '<AS-h>', '<Cmd>BufferMovePrevious<CR>')
-map('n', '<AS-l>', '<Cmd>BufferMoveNext<CR>')
-map('n', '<A-1>', '<Cmd>BufferGoto 1<CR>')
-map('n', '<A-2>', '<Cmd>BufferGoto 2<CR>')
-map('n', '<A-3>', '<Cmd>BufferGoto 3<CR>')
-map('n', '<A-4>', '<Cmd>BufferGoto 4<CR>')
-map('n', '<A-5>', '<Cmd>BufferGoto 5<CR>')
-map('n', '<A-6>', '<Cmd>BufferGoto 6<CR>')
-map('n', '<A-7>', '<Cmd>BufferGoto 7<CR>')
-map('n', '<A-8>', '<Cmd>BufferGoto 8<CR>')
-map('n', '<A-9>', '<Cmd>BufferGoto 9<CR>')
-map('n', '<A-0>', '<Cmd>BufferLast<CR>')
-map('n', '<A-p>', '<Cmd>BufferPin<CR>')
+map('n', '<A-l>', ':BufferLineMoveNext<CR>')
+map('n', '<A-h>', ':BufferLineMovePrev<CR>')
+
+map('n', "<S-t>", ":BufferLineTogglePin<CR>")
+map('n', '<S-s>', ":BufferLineSortByDirectory<CR>")
+
+map('n', '<A-0>', '<Cmd>BufferGoToBuffer -1<CR>')
+map('n', '<A-1>', '<Cmd>BufferGoToBuffer 1<CR>')
+map('n', '<A-2>', '<Cmd>BufferGotoBuffer 2<CR>')
+map('n', '<A-3>', '<Cmd>BufferGotoBuffer 3<CR>')
+map('n', '<A-4>', '<Cmd>BufferGotoBuffer 4<CR>')
+map('n', '<A-5>', '<Cmd>BufferGotoBuffer 5<CR>')
+map('n', '<A-6>', '<Cmd>BufferGotoBuffer 6<CR>')
+map('n', '<A-7>', '<Cmd>BufferGotoBuffer 7<CR>')
+map('n', '<A-8>', '<Cmd>BufferGotoBuffer 8<CR>')
+map('n', '<A-9>', '<Cmd>BufferGotoBuffer 9<CR>')
 
 -- windows - ctrl nav, fn resize
 map("n", "<C-h>", "<C-w>h")
@@ -39,15 +40,17 @@ map("n", "<C-l>", "<C-w>l")
 -- fzf and grep
 map("n", "<leader>f", ":lua require('fzf-lua').files()<CR>") --search cwd
 map("n", "<leader>Fh", ":lua require('fzf-lua').files({ cwd = '~/' })<CR>") --search home
+map("n", "<leader>Fl", ":lua require('fzf-lua').files({ cwd = '/lien' })<CR>")
+map("n", "<leader>Fm", ":lua require('fzf-lua').files({ cwd = '/lien/Desktop/meow' })<CR>") 
 map("n", "<leader>Fc", ":lua require('fzf-lua').files({ cwd = '~/.config' })<CR>") --search .config
-map("n", "<leader>Fl", ":lua require('fzf-lua').files({ cwd = '~/.local/src' })<CR>") --search .local/src
 map("n", "<leader>Ff", ":lua require('fzf-lua').files({ cwd = '..' })<CR>") --search above
 map("n", "<leader>Fr", ":lua require('fzf-lua').resume()<CR>") --last search
+
 map("n", "<leader>g", ":lua require('fzf-lua').grep()<CR>") --grep
 map("n", "<leader>G", ":lua require('fzf-lua').grep_cword()<CR>") --grep word under cursor
 
 -- misc
-map("n", "<leader>s", ":%s//g<Left><Left>") --replace all
+map("n", "<leader>s", ":%s//g<Left><Left>") --replace all		Q		
 map("n", "<leader>p", switch_theme) --cycle themes
 map("n", "<leader>P", ":Lazy<CR>") --vim-plug
 map('n', '<leader>z', ":lua require('FTerm').open()<CR>") --open term

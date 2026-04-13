@@ -59,11 +59,11 @@
         },
         "PenButtons": [
           {
-            "Path": "OpenTabletDriver.Desktop.Binding.MultiKeyBinding",
+            "Path": "OpenTabletDriver.Desktop.Binding.KeyBinding",
             "Settings": [
               {
-                "Property": "Keys",
-                "Value": "Control+Z"
+                "Property": "Key",
+                "Value": "C"
               }
             ],
             "Enable": true
@@ -81,11 +81,11 @@
         ],
         "AuxButtons": [
           {
-            "Path": "OpenTabletDriver.Desktop.Binding.KeyBinding",
+            "Path": "OpenTabletDriver.Desktop.Binding.MultiKeyBinding",
             "Settings": [
               {
-                "Property": "Key",
-                "Value": "D1"
+                "Property": "Keys",
+                "Value": "Control+Z"
               }
             ],
             "Enable": true
@@ -111,31 +111,31 @@
             "Enable": true
           },
           {
+            "Path": "OpenTabletDriver.Desktop.Binding.MultiKeyBinding",
+            "Settings": [
+              {
+                "Property": "Keys",
+                "Value": "Alt+LeftControl"
+              }
+            ],
+            "Enable": true
+          },
+          {
             "Path": "OpenTabletDriver.Desktop.Binding.KeyBinding",
             "Settings": [
               {
                 "Property": "Key",
-                "Value": "D4"
+                "Value": "LeftBracket"
               }
             ],
             "Enable": true
           },
           {
-            "Path": "OpenTabletDriver.Desktop.Binding.MultiKeyBinding",
+            "Path": "OpenTabletDriver.Desktop.Binding.KeyBinding",
             "Settings": [
               {
-                "Property": "Keys",
-                "Value": "Control+Alt+L"
-              }
-            ],
-            "Enable": true
-          },
-          {
-            "Path": "OpenTabletDriver.Desktop.Binding.MultiKeyBinding",
-            "Settings": [
-              {
-                "Property": "Keys",
-                "Value": "Control+Alt+T"
+                "Property": "Key",
+                "Value": "RightBracket"
               }
             ],
             "Enable": true

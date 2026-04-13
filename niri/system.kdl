@@ -1,0 +1,6 @@
+workspace "system"
+		window-rule {
+				match app-id=r#"librewolf"#
+				open-on-workspace "system"
+				default-column-width { proportion 0.5; }
+		}

@@ -13,6 +13,16 @@
 # Change the argument to True to still load settings configured via autoconfig.yml
 config.load_autoconfig(False)
 
+# Which window to choose when opening links as new tabs. When
+# `new_instance_open_target` is set to `window`, this is ignored.
+# Type: String
+# Valid values:
+#   - first-opened: Open new tabs in the first (oldest) opened window.
+#   - last-opened: Open new tabs in the last (newest) opened window.
+#   - last-focused: Open new tabs in the most recently focused window.
+#   - last-visible: Open new tabs in the most recently visible window.
+c.new_instance_open_target_window = 'last-focused'
+
 # Turn on Qt HighDPI scaling. This is equivalent to setting
 # QT_ENABLE_HIGHDPI_SCALING=1 (Qt >= 5.14) in the environment. It's off
 # by default as it can cause issues with some bitmap fonts. As an
@@ -152,6 +162,42 @@ config.set('content.local_content_can_access_remote_urls', True, 'file:///home/x
 # Allow locally loaded documents to access other local URLs.
 # Type: Bool
 config.set('content.local_content_can_access_file_urls', False, 'file:///home/xavier/.local/share/qutebrowser/userscripts/*')
+
+# Automatically mute tabs. Note that if the `:tab-mute` command is used,
+# the mute status for the affected tab is now controlled manually, and
+# this setting doesn't have any effect.
+# Type: Bool
+c.content.mute = False
+
+# Position of the tab bar.
+# Type: Position
+# Valid values:
+#   - top
+#   - bottom
+#   - left
+#   - right
+c.tabs.position = 'left'
+
+# Format to use for the tab title. The following placeholders are
+# defined:  * `{perc}`: Percentage as a string like `[10%]`. *
+# `{perc_raw}`: Raw percentage, e.g. `10`. * `{current_title}`: Title of
+# the current web page. * `{title_sep}`: The string `" - "` if a title
+# is set, empty otherwise. * `{index}`: Index of this tab. *
+# `{aligned_index}`: Index of this tab padded with spaces to have the
+# same   width. * `{relative_index}`: Index of this tab relative to the
+# current tab. * `{id}`: Internal tab ID of this tab. * `{scroll_pos}`:
+# Page scroll position. * `{host}`: Host of the current web page. *
+# `{backend}`: Either `webkit` or `webengine` * `{private}`: Indicates
+# when private mode is enabled. * `{current_url}`: URL of the current
+# web page. * `{protocol}`: Protocol (http/https/...) of the current web
+# page. * `{audio}`: Indicator for audio/mute status.
+# Type: FormatString
+c.tabs.title.format = '{audio}{index}: {current_title}'
+
+# Width (in pixels or as percentage of the window) of the tab bar if
+# it's vertical.
+# Type: PercOrInt
+c.tabs.width = '7%'
 
 # Default zoom level.
 # Type: Perc

@@ -1,0 +1,33 @@
+		window-rule {
+				match app-id=r#"krita"#
+//				open-on-workspace "art"
+				default-column-width { proportion 1.0; }
+				opacity 1.0
+		}
+		window-rule {
+				match app-id=r#"PureRef"# 
+				open-floating true
+//				open-on-workspace "art"
+				default-column-width { proportion 0.25; }
+				default-window-height { fixed 500; }
+				default-floating-position x=150 y=70 relative-to="top-right"
+				opacity 1.0
+
+		}
+		window-rule {
+				open-fullscreen false
+				tiled-state true
+				match app-id=r#"clipstudiopaint.exe"#
+				open-on-workspace "art"
+				default-column-width { proportion 1.0; }
+				default-window-height { proportion 1.0; }
+				opacity 1.0
+		}
+		window-rule {
+				match app-id=r#"clipstudio.exe"# 
+				open-on-workspace "art"
+				default-column-width { proportion 0.5; }
+				default-window-height { proportion 1.0; }
+				opacity 1.0
+		}
+

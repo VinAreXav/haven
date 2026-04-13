@@ -32,7 +32,7 @@
   # };
 
   networking.networkmanager.enable = true;
-  time.timeZone = "Asia/Japan";
+  time.timeZone = "Asia/Astana";
 
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -127,6 +127,7 @@ users.users.xavier = {
     swaybg
     krita-unwrapped
     pywal16
+	pywalfox-native
     anki-bin
     ankiAddons.anki-connect
     ankiAddons.review-heatmap
@@ -146,7 +147,7 @@ users.users.xavier = {
     kdePackages.polkit-kde-agent-1
     glib
     pavucontrol
-    wineWowPackages.waylandFull
+    wineWow64Packages.waylandFull
     bottles
     winetricks
     brightnessctl
@@ -188,6 +189,7 @@ users.users.xavier = {
 	hyprshot
 	sddm-astronaut
 	jq
+	chameleos
 ];
 
    fonts.packages = with pkgs; [
