@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 export PATH="$HOME/.local/bin:/usr/bin:/bin:$PATH"
 cp ~/.cache/wal/Colors.qml /lien/Desktop/meow/quickshell/hyprshell/
-#killall swaybg
-#swaybg -m fill -i "$(cat ~/.cache/wal/wal)" &
+pkill swaybg
+swaybg -m fill -i "$(cat ~/.cache/wal/wal)" &
 # killall waybar
 # killall hyprpaper
 
 pywalfox update 
 
-#while [ ! -f ~/.cache/wal/krita.colors ]; do
-#	sleep 0.1
-#done
+while [ ! -f ~/.cache/wal/krita.colors ]; do
+	sleep 0.1
+done
 
 # cp "$(cat ~/.cache/wal/wal)" ~/Desktop/conesque/hyprpaper/wal
 #
