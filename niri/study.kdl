@@ -1,0 +1,18 @@
+workspace "study"
+		window-rule {
+				match app-id=r#"krita"#
+				match app-id=r#"clipstudio.exe"# 
+				match app-id=r#"clipstudiopaint.exe"#
+				open-on-workspace "study"
+				default-column-width { proportion 0.6; }
+				opacity 1.0
+		}
+		window-rule {
+				match app-id=r#"PureRef"# 
+				open-on-workspace "study"
+				default-column-width { proportion 0.4; }
+				default-floating-position x=150 y=70 relative-to="top-right"
+				opacity 1.0
+
+		}
+

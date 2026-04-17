@@ -10,12 +10,21 @@ input {
 
     touchpad {
 		//	dwt
-		accel-speed 0.3
-        natural-scroll
+		tap
+		accel-speed 0.0
+        accel-profile "flat"
+		scroll-method "two-finger"
+		middle-emulation
+		natural-scroll
     }
-
-focus-follows-mouse
-workspace-auto-back-and-forth
+	mouse {
+			accel-speed 0.0
+			accel-profile "flat"
+			middle-emulation
+	}
+	warp-mouse-to-focus mode="center-xy"
+	focus-follows-mouse max-scroll-amount="10%"
+	workspace-auto-back-and-forth
 }
 // ────────────── Output Configuration ──────────────
 output "BOE NE160WUM-NX2 Unknown" {
@@ -26,12 +35,12 @@ output "BOE NE160WUM-NX2 Unknown" {
 }
 
 // ────────────── Environment Variables ──────────────
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Miscellaneous#environment
     environment {
         DISPLAY ":1"
         ELECTRON_OZONE_PLATFORM_HINT "auto"
 //        QT_QPA_PLATFORM "wayland"
         QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+		QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
         XDG_SESSION_TYPE "wayland"
         XDG_CURRENT_DESKTOP "niri"
     }

@@ -39,13 +39,13 @@ binds {
 	Mod+O { toggle-window-rule-opacity; }
     MOD+H { focus-column-left; }
     MOD+L { focus-column-right; }
-//	MOD+K                               { focus-window-up; }
-//  MOD+J                               { focus-window-down; }
+	MOD+K                               { focus-window-up; }
+  	MOD+J                               { focus-window-down; }
 	
     CTRL+H              { move-column-left; }
     CTRL+L              { move-column-right; }
-//	CTRL+K              { move-window-up; }
-//	CTRL+J              { move-window-down; }
+	CTRL+K              { move-window-up; }
+	CTRL+J              { move-window-down; }
 
 //    MOD+5               { focus-column-first; }
 //    MOD+6               { focus-column-last; }
@@ -55,21 +55,21 @@ binds {
     // ─── Workspace Switching ───
 
     MOD+1                               { focus-workspace 1; }
-	MOD+K								{ focus-workspace-up; }
-	MOD+J								{ focus-workspace-down; }
-    //MOD+5                               { focus-workspace 5; }
-	//MOD+6                               { focus-workspace 6; }
-    //MOD+7                               { focus-workspace 7; }
+	MOD+2                               { focus-workspace 2; }
+	MOD+3                               { focus-workspace 3; }
+    MOD+4                               { focus-workspace 4; }
+	MOD+9								{ focus-workspace-down; }
+    MOD+0								{ focus-workspace-up; }
     //MOD+8                               { focus-workspace 8; }
 	//MOD+9                               { focus-workspace 9; }
 
     CTRL+1                          { move-column-to-workspace 1; }
-    CTRL+K                          { move-column-to-workspace-up; }
-    CTRL+J                          { move-column-to-workspace-down; }
-    //CTRL+5                          { move-column-to-workspace 5; }
-    //CTRL+6                          { move-column-to-workspace 6; }
-    //CTRL+7                          { move-column-to-workspace 7; }
-    //CTRL+8                          { move-column-to-workspace 8; }
+    CTRL+2                          { move-column-to-workspace 2; }
+    CTRL+3                          { move-column-to-workspace 3; }
+    CTRL+4                          { move-column-to-workspace 4; }
+    CTRL+9                          { move-column-to-workspace-down; }
+    CTRL+0                          { move-column-to-workspace-up; }
+	//CTRL+8                          { move-column-to-workspace 8; }
     //CTRL+9                          { move-column-to-workspace 9; }
 	
 	// MOD+TAB                             { focus-workspace-previous; }

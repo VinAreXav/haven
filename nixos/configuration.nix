@@ -127,8 +127,11 @@ users.users.xavier = {
     swaybg
     krita-unwrapped
     pywal16
-	pywalfox-native
-    anki-bin
+    pywalfox-native
+	mpv
+	ruff
+	yt-dlp
+	anki-bin
     ankiAddons.anki-connect
     ankiAddons.review-heatmap
     fcitx5-mozc
@@ -157,7 +160,7 @@ users.users.xavier = {
 	dex
     heroic
     protonplus
-    swww
+    awww
     folder-color-switcher
     gcc
     fzf

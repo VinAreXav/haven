@@ -108,7 +108,7 @@ fn change_wallpaper(wallpaper: &str, output: &str) -> Result<()> {
 		return Err("Wallpaper not found".into());
 	}
 
-	Command::new("swww")
+	Command::new("awww")
 		.arg("img")
 		.arg(wallpaper)
 		.arg("-o")

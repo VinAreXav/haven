@@ -3,7 +3,7 @@
 
 	inputs = {
 		nixpkgs.url = "nixpkgs/nixos-unstable";
-		niri-flake.url = "path:/lien/Desktop/meow/niri/";
+		niri-flake.url = "github:niri-wm/niri";
 		home-manager = {
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
@@ -23,7 +23,7 @@
 				inputs.quickshell.follows = "quickshell";
 		};
 	};
-	outputs = { nixpkgs, home-manager, aagl, quickshell, qml-niri, niri-flake, ... }:{
+	outputs = { nixpkgs, home-manager, aagl, quickshell, qml-niri, niri-flake,... }:{
 			nixosConfigurations.aha = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			modules = [

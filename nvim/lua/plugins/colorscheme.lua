@@ -5,6 +5,7 @@ return {
 		lazy = false,
 		priority = 1000,
 		opts = {
+				notify = "none",
 				transparent_background = true,
 				enable_bufferline = true,
 				plugins = {

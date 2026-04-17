@@ -1,32 +1,53 @@
 		gestures {
-			hot-corners {
+				dnd-edge-view-scroll {
+						trigger-width 30
+						delay-ms 100
+						max-speed 1500
+				}
+				dnd-edge-workspace-switch {
+						trigger-height 50
+						delay-ms 100
+						max-speed 1500
+				}
+				hot-corners {
 					off
 			}
-	}
-recent-windows {
-    // off
-    debounce-ms 750
+		}
+		hotkey-overlay {
+				hide-not-bound
+				skip-at-startup
+		}
+	overview {
+		zoom 0.3
+		workspace-shadow {
+				// off
+				softness 50
+				spread 50
+				offset x=10 y=70
+				color "#00000090"
+				}
+		}
+		recent-windows {
+				// off
+				debounce-ms 750
+				open-delay-ms 20
 
-    open-delay-ms 20
-
-    highlight {
-        active-color "#999999ff"
-        urgent-color "#ff9999ff"
-        padding 30
-        corner-radius 0
-    }
-
-    previews {
-        max-height 480
-        max-scale 0.5
-    }
-
-    binds {
-		Mod+Tab         { next-window; }
-//        Mod+Shift+Tab   { previous-window; }
-        Mod+grave       { next-window     filter="app-id"; }
- //       Mod+Shift+grave { previous-window filter="app-id"; }
-    }
+		highlight {
+				active-color "#999999ff"
+				urgent-color "#ff9999ff"
+				padding 30
+				corner-radius 0
+		}
+		previews {
+				max-height 800
+				max-scale 0.7
+		}
+		binds {
+				Mod+Tab         { next-window; }
+		//        Mod+Shift+Tab   { previous-window; }
+				Mod+grave       { next-window     filter="app-id"; }
+		//       Mod+Shift+grave { previous-window filter="app-id"; }
+		}
 }
 
 
