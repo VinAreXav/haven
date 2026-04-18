@@ -11,7 +11,6 @@ workspace "scratch"
 		noise 0.07
 	}
 		window-rule {
-				open-focused true
 				geometry-corner-radius 10
 				clip-to-geometry true	
 				opacity 0.5
@@ -25,21 +24,19 @@ workspace "scratch"
 				opacity 0.87
 				background-effect {
 						blur false
-						saturation 0
+						saturation 1
 						
 				}
 		}
 
 		layer-rule {
-				match namespace="^wallpaper$"
+				match namespace="^awww-daemon$"
 				place-within-backdrop true
-						background-effect {
-								blur true
-								noise 0.15
-								saturation 0
-						}
 		}
 
+		layer-rule {
+				match namespace="wallpaper"
+		}
 		window-rule {
 				match app-id=r#"^special*"#
 				default-column-width { proportion 0.5; }
@@ -51,7 +48,6 @@ workspace "scratch"
 				match title="Picture-in-Picture"
 
 				open-floating true
-				open-focused true
 				default-column-width { }
 				default-window-height { }
 				background-effect {

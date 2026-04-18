@@ -188,7 +188,6 @@ users.users.xavier = {
 	hyprpolkitagent
 	dex
 	basalt
-	nnn
 	hyprshot
 	sddm-astronaut
 	jq

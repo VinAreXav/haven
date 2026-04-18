@@ -1,11 +1,12 @@
 // ────────────── Startup Applications ────────────── 
     spawn-at-startup "niri" "msg" "action" "focus-workspace" "study"
-    spawn-at-startup "mako" // Mako
+    spawn-at-startup "mako" 	
 	spawn-at-startup "/usr/lib/polkit-kde-authentication-agent-1" "&"
 	spawn-at-startup "xwayland-satellite"
 	spawn-at-startup "otd-daemon" "&"
+	spawn-at-startup "chameleos" "&"
 	spawn-at-startup "chameleos" "--stroke-width" "4" "--stroke-color" "#D6362B" "&"
-//	spawn-at-startup "awww-daemon" 
+	spawn-at-startup "awww-daemon" 
     spawn-at-startup "~/Desktop/meow/colors/pywal16"
 //  spawn-at-startup "/lien/Desktop/meow/qof/wallpaper-per-workspace" "/lien/Desktop/conesque/workspaces" "&"
 	spawn-at-startup "brightnessctl" "set" "100%"

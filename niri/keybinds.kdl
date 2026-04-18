@@ -2,7 +2,7 @@
 
 screenshot-path "~/Desktop/haven/screenshot/%Y-%m-%d.png"
 binds {
-    MOD+SHIFT+ESCAPE                     { show-hotkey-overlay; }
+    Mod+Shift+Escape                     { show-hotkey-overlay; }
 	
 	F1 { spawn "chamel" "toggle"; }
 	F2 { spawn "chamel" "undo"; }
@@ -10,37 +10,33 @@ binds {
     F4 { spawn "kitty" "-e" "peaclock"; }
 
 	// ─── Applications ───
-	MOD+E	{ spawn "nemo"; }
-	MOD+D	repeat=false	hotkey-overlay-title="app launcher: " { spawn "rofi" "-modi" "'drun,ssh'" "-show" "drun" ; }
+	Mod+E	{ spawn "nemo"; }
+	Mod+D	repeat=false	hotkey-overlay-title="app launcher: " { spawn "rofi" "-modi" "drun" "-show" "drun" ; }
 	
-	MOD+T	{ spawn "kitty" "--working-directory" "/"; }
-	MOD+N	{ spawn "kitty" "--working-directory" "/" "-e" "nvim"; }
-    MOD+W 	{ spawn "kitty" "-e" "basalt"; }	
-	
-	MOD+I	repeat=false	{spawn "~/Desktop/meow/colors/walmenu.sh"; }
+	Mod+T	{ spawn "kitty" "--working-directory" "/"; }
+	Mod+N	{ spawn "kitty" "--working-directory" "/" "-e" "nvim"; }
+	Mod+I	repeat=false	{spawn "~/Desktop/meow/colors/walmenu.sh"; }
 	// MOD+C { spawn "dex" "~/.local/share/applications/csp--CLIPStudioPaint--1774022681.052287.desktop"; }
-	MOD+R hotkey-overlay-title=" puring your ref " { spawn "PureRef"; }
+	Mod+R hotkey-overlay-title=" puring your ref " { spawn "PureRef"; }
     
-	MOD+B	{ spawn "flatpak" "run" "io.gitlab.librewolf-community"; }   
+	Mod+B	{ spawn "flatpak" "run" "io.gitlab.librewolf-community"; }   
 //  MOD+M repeat=false	{ spawn "dex" "/usr/share/applications/spotify-adblock.desktop"; }
-	
-	CTRL+SHIFT+1 repeat=false { spawn "anime-game-launcher"; }
-	CTRL+SHIFT+2 repeat=false { spawn "honkers-railway-launcher"; }
-	CTRL+SHIFT+3 repeat=false { spawn "sleepy-launcher"; }
-	CTRL+SHIFT+4 repeat=false { spawn "heroic"; }
+    Ctrl+Shift+1 { spawn "obsidian";}
+	Ctrl+Shift+2 { spawn "kitty" "-e" "basalt"; }
+	Ctrl+Shift+3 { spawn "freetube"; }
+	Ctrl+Shift+4 { spawn "pavucontrol"; }
 
-    MOD+A { spawn "/lien/Desktop/meow/niri/custom/niri-scripts/niri-floating-sidebar.sh" "toggle"; }
-    MOD+S { spawn "/lien/Desktop/meow/niri/custom/niri-scripts/niri-floating-sidebar.sh" "hide";}
-    MOD+SHIFT+A { spawn "/lien/Desktop/meow/niri/custom/niri-scripts/niri-floating-sidebar.sh" "flip";}
-	Mod+G { spawn "/lien/Desktop/meow/niri/custom/niri-scripts/auto-layout.sh";}
+    Mod+S { spawn "/lien/Desktop/meow/niri/custom/niri-scripts/niri-floating-sidebar.sh" "toggle"; }
+    Mod+W { spawn "/lien/Desktop/meow/niri/custom/niri-scripts/niri-floating-sidebar.sh" "hide";}
+	Mod+A { spawn "/lien/Desktop/meow/niri/custom/niri-scripts/auto-layout.sh";}
 	Mod+M { spawn "/lien/Desktop/meow/niri/custom/niri-scripts/set-master.sh";}
 	// ─── Window Movement and Focus ───
-    MOD+X                               { close-window; }
+    Mod+X                               { close-window; }
 	Mod+O { toggle-window-rule-opacity; }
-    MOD+H { focus-column-left; }
-    MOD+L { focus-column-right; }
-	MOD+K                               { focus-window-up; }
-  	MOD+J                               { focus-window-down; }
+    Mod+H { focus-column-left; }
+    Mod+L { focus-column-right; }
+	Mod+K                               { focus-window-up; }
+  	Mod+J                               { focus-window-down; }
 	
     CTRL+H              { move-column-left; }
     CTRL+L              { move-column-right; }
@@ -54,52 +50,52 @@ binds {
 
     // ─── Workspace Switching ───
 
-    MOD+1                               { focus-workspace 1; }
-	MOD+2                               { focus-workspace 2; }
-	MOD+3                               { focus-workspace 3; }
-    MOD+4                               { focus-workspace 4; }
-	MOD+9								{ focus-workspace-down; }
-    MOD+0								{ focus-workspace-up; }
+    Mod+1                               { focus-workspace 1; }
+	Mod+2                               { focus-workspace 2; }
+	Mod+3                               { focus-workspace 3; }
+    Mod+4                               { focus-workspace 4; }
+	Mod+9								{ focus-workspace-down; }
+    Mod+0								{ focus-workspace-up; }
     //MOD+8                               { focus-workspace 8; }
 	//MOD+9                               { focus-workspace 9; }
 
-    CTRL+1                          { move-column-to-workspace 1; }
-    CTRL+2                          { move-column-to-workspace 2; }
-    CTRL+3                          { move-column-to-workspace 3; }
-    CTRL+4                          { move-column-to-workspace 4; }
-    CTRL+9                          { move-column-to-workspace-down; }
-    CTRL+0                          { move-column-to-workspace-up; }
+    Ctrl+1                          { move-column-to-workspace 1; }
+    Ctrl+2                          { move-column-to-workspace 2; }
+    Ctrl+3                          { move-column-to-workspace 3; }
+    Ctrl+4                          { move-column-to-workspace 4; }
+    Ctrl+9                          { move-column-to-workspace-down; }
+    Ctrl+0                          { move-column-to-workspace-up; }
 	//CTRL+8                          { move-column-to-workspace 8; }
     //CTRL+9                          { move-column-to-workspace 9; }
 	
 	// MOD+TAB                             { focus-workspace-previous; }
 
     // ─── Layout Controls ───
-	MOD+C                         	{ center-column; }
-	MOD+SHIFT+C                     { center-visible-columns; }
-   	MOD+CTRL+L						{ set-column-width "+10%"; }
-    MOD+CTRL+H						{ set-column-width "-10%"; }
-	MOD+CTRL+K						{ set-window-height "-10%"; }
-    MOD+CTRL+J						{ set-window-height "+10%"; }
+	Mod+C                         	{ center-column; }
+	Mod+Shift+C                     { center-visible-columns; }
+   	Mod+Ctrl+L						{ set-column-width "+10%"; }
+    Mod+Ctrl+H						{ set-column-width "-10%"; }
+	Mod+Ctrl+K						{ set-window-height "-10%"; }
+    Mod+Ctrl+J						{ set-window-height "+10%"; }
 
     // ─── Modes ───
-	MOD+V							{ toggle-window-floating; }
-    MOD+F							{ fullscreen-window; }
-    MOD+SHIFT+F						{ expand-column-to-available-width; }
-	MOD+SHIFT+T						{ toggle-column-tabbed-display; }
-	MOD+P 							{ spawn "niri-float-sticky" "-ipc" "toggle_sticky"; }
+//	Mod+V							{ toggle-window-floating; }
+    Mod+Shift+F						{ fullscreen-window; }
+    Mod+F						    { expand-column-to-available-width; }
+	Mod+Shift+T						{ toggle-column-tabbed-display; }
+	Mod+P 							{ spawn "niri-float-sticky" "-ipc" "toggle_sticky"; }
     // ─── Screenshots ───
-	PRINT 							{ screenshot; }
-	MOD+PRINT       				{ screenshot-window; }
-	MOD+CTRL+PRINT					{ screenshot-screen; }
+	Print 							{ screenshot; }
+	Mod+Print       				{ screenshot-window; }
+	Mod+Ctrl+Print					{ screenshot-screen; }
 
     // ─── Emergency Escape Key ───
     // MOD+ESCAPE                          allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // ─── Exit / Power ───
-    CTRL+ALT+DELETE                 { quit; }
-	MOD+ESCAPE                      { power-off-monitors; }
-	MOD+Q              repeat=false { toggle-overview; }
+    Ctrl+Alt+Delete                 { quit; }
+	Mod+Escape                      { power-off-monitors; }
+	Mod+Q              repeat=false { toggle-overview; }
 
     // ─── Audio Controls ───
     // The allow-when-locked=true property makes them work even when the session is locked.

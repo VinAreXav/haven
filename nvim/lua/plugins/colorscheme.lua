@@ -12,12 +12,11 @@ return {
 						lazy = true,
 						nvim_cmp = true,
 						lazygit = true,
-						notify = false
 				}
 		},
 		config = function(_, opts)
         require("neopywal").setup(otps)
-		vim.cmd.colorscheme("neopywal")
+		vim.cmd.colorscheme("neopywal-light")
 				end,
 						},
 		}
