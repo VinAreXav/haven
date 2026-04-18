@@ -21,7 +21,8 @@ do
 		"1") cp $file ~/Desktop/conesque/workspaces/1
 		# hyprctl hyprpaper wallpaper 'eDP-1, /lien/Desktop/conesque/workspaces/1'
 		wal -i $file -o $GTK
-#		awww img --transition-type wipe --transition-duration 1.0 --filter CatmullRom --transition-fps 90 --transition-angle 180 --transition-bezier .97,.03,.02,.98  $file 
+		awww imd --transition-type none --transition-duration 0.1 $file
+#		awww img --transition-type wipe --transition-duration 1.0 --filter CatmullRom --transition-fps 78 --transition-angle 180 --transition-bezier .97,.03,.02,.98  $file 
 				;;
 #art
 		"2") cp $file ~/Desktop/conesque/workspaces/2

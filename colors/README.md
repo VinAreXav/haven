@@ -1,7 +1,7 @@
 mkdir -p ~/.config/nsxiv/exec/
-ln -s ~/Desktop/meow/colors/key-handler ~/.config/nsxiv/exec/key-handler
+ln -s /lien/Desktop/meow/colors/key-handler ~/.config/nsxiv/exec/key-handler
 
 cp ~/.config/wal/templates/ ~/.config/wal/templates.bak/
-ln -s ~/Desktop/meow/colors/templates/ ~/.config/wal/
-ln -s ~/.cache/wal/krita.colors ~/.local/share/krita/color-scheme
+ln -s /lien/Desktop/meow/colors/templates/ ~/.config/wal/
+ln -s ~/.cache/wal/krita.colors ~/.local/share/krita/color-schemes/
 
